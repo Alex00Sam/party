@@ -20,7 +20,7 @@ $w->addStep('Имя пользователя и пароль',function($t)use($d
 
 $w->addStep('О себе',function($t)use($db,$user){
   $f =$t->add('Form');
-  $f -> setModel($user,['name','surname','email','phone','country','city','gender','description','vk','inst','image','age']);
+  $f -> setModel($user,['name','surname','email','phone','country','city','gender','description','vk','inst','image','dob']);
   //$m1 = $t->recall('model1');
   //$form->model->set('login',$m1['login']);
   //$form->model->set('password',$m1['password']);
@@ -49,7 +49,7 @@ $w->addStep('О себе',function($t)use($db,$user){
     $user->set('rating',2.5);
     $user->set('vk',$f->model['vk']);
     $user->set('inst',$f->model['inst']);
-    $user->set('age',$f->model['age']);
+    $user->set('dob',$f->model['dob']);
     $user->save();
     $_SESSION['user_id']=$user->id;
    return $t->jsNext();

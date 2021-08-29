@@ -15,11 +15,11 @@ class Users extends \atk4\data\Model {
 		$this->addField('rating');
 		//$this->addField('gender', ['Radio'], ['enum'=>['Мужской','Женский','Не указано']]);
     $this->addField('gender',['enum'=>['Мужской','Женский','Не указано'],'caption'=>'Пол']);
-		$this->addField('description',['type'=>'textarea']);
+		$this->addField('description');
 		$this->addField('vk');
 		$this->addField('inst');
     $this->addField('image');
-		$this->addField('age');
+		$this->addField('dob',['caption'=>'Дата рождения']);
 
 		$this->hasMany('SlotsUsers',new SlotsUsers());
 	}
