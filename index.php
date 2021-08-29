@@ -48,11 +48,11 @@ foreach($slot as $a){
 }
 $rat->on('click',function($b)use($columns,$slot){
   $slot->setOrder('total_rating');
-  return [$slot->jsReload(),$columns->jsReload(),$col1->jsReload(),$col2->jsReload(),$col3->jsReload()];
+  return [$columns->jsReload(),$col1->jsReload(),$col2->jsReload(),$col3->jsReload()];
 });
 $dat->on('click',function($b)use($columns,$slot){
   $slot->setOrder('date');
-  return [$slot->jsReload(),$columns->jsReload(),$col1->jsReload(),$col2->jsReload(),$col3->jsReload()];
+  return [$columns->jsReload(),$col1->jsReload(),$col2->jsReload(),$col3->jsReload()];
 });
 
 $map = new \atk4\ui\View(['template' => new \atk4\ui\Template('<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=R%C4%ABga%2C%20%D0%9B%D0%B0%D1%82%D0%B2%D0%B8%D1%8F&key=AIzaSyDyaaCYY8N0TZsKiz--wJ2pyC3edh3Ik2I"></iframe>')]);
