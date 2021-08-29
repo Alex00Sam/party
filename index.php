@@ -31,11 +31,11 @@ $col3 = $columns->addColumn(4);
 $i=1;
 $rat->on('click',function($b)use($columns,$slot){
   $slot->setOrder('total_rating');
-  return new \atk4\ui\JsReload($columns);
+  return new \Atk4\Ui\JsReload($columns);
 });
 $dat->on('click',function($b)use($columns,$slot){
   $slot->setOrder('date');
-  return new \atk4\ui\JsReload($columns);
+  return new \Atk4\Ui\JsReload($columns);
 });
 foreach($slot as $a){
 //  $card = new Cards($a);
