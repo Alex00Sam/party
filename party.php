@@ -29,7 +29,7 @@
     $i++;
   }*/
 
-  $label = $app->add(['Label',$slot['total'],'circular massive red']);
+  $label = $app->add(['Label',$slot['total'],'massive','icon'=> 'users']);
   $join=$app->add(['Button','Вступить']);
   if(!isset($_SESSION['user_id'])){
     $join->addClass('disabled');
