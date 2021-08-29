@@ -8,8 +8,12 @@ require 'lib/Users.php';
 require 'lib/Cards.php';
 //New app//
 $app = new \atk4\ui\App('Vpiski.NET');
-$db = new
-\atk4\data\Persistence\SQL('mysql:dbname=party;localhost', 'MySite', '12345');
+if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
+     $db = new \atk4\data\Persistence\SQL($_ENV['CLEARDB_DATABASE_URL']);
+ } else {
+   $db = new \atk4\data\Persistence\SQL('mysql:dbname=party;localhost', 'MySite', '12345');
+ }
+
 ///////////
 
 //Layout//
