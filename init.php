@@ -47,7 +47,7 @@ if(isset($_SESSION['user_id'])){
    $signup = $topmenu->add(['ui'=>'button blue'])->set('Зарегистрироваться')->link(['register']);
 //   $signin = $topmenu->add(['ui'=>'button green'])->set('Sign In');//->link(['login']);
    $but=$topmenu->addItem('Войти')->addClass('red');
-   $popup=$app->layout->add(['Popup',$but]);
+   $popup=$app->layout->add(['Popup',$but])->addClass('sticky');
    $popup->setOption('position','bottom center');
      $popup->setHoverable();
 
