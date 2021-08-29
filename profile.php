@@ -9,7 +9,7 @@
   $card->addContent($rating);
 
   $card->addImage($current_user['image']);
-  $s2 = $card->addSection('О себе',$current_user,['age','description','vk','inst',]);
+  $s2 = $card->addSection('О себе',$current_user,['dob','description','vk','inst',]);
   $s2->addClass('center aligned');
   $s2 = $card->addSection('Контакты',$current_user,['email','phone','country','city']);
 
