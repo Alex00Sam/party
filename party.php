@@ -84,9 +84,6 @@
       $ch = $app->add(['Button','Редактировать слот']);
       $ch->on('click',new \atk4\ui\jsModal('Редактировать слот', $vp));
     }
-    $text = "New+york";
-    $app->add('View',['template'=>new \atk4\ui\Template('<b>Hello</b>')]);
-
 
     //var_dump($mid);
       /*  $popup=$app->add(['Popup',$join]);

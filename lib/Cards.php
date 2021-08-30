@@ -20,7 +20,11 @@ class Cards extends \atk4\ui\View {
         $this->link(['party','id'=>$obj->id]);
         $rating = new \atk4\ui\View(['ui' => 'rating disabled']);
         $rating->id = '_rating_'.$obj->id;
-        $rating->js(true)->rating(['maxRating' => 5, 'initialRating' => round($obj['total_rating'])]);//->clear();
+        if($obj['total_rating']){
+          $rating->js(true)->rating(['maxRating' => 5, 'initialRating' => round($obj['total_rating'])]);//->clear();
+        }else{
+          $rating->js(true)->rating(['maxRating' => 5, 'initialRating' => round($obj['rating'])]);//->clear();
+        }
         $this->add($rating);
         $this->add(['Label',$obj['total'],'icon'=>'users']);
     //    $this->js()->clear();

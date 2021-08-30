@@ -19,13 +19,15 @@ if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
 //Layout//
 $layout = $app->initLayout('Centered');
 $app->layout->template->del('Header');
-$app->layout->add([
+$header = $app->layout->add([
     'Header',
     'Vpiski.NET',
     'icon'=>'bomb',
     'size'=>'huge',
-    'aligned' => 'centered',
-], 'Header');
+    'aligned' => 'centered'
+
+    ], 'Header');
+$header->link(['index']);
 //////////
 $topmenu = $app->add(['Menu', 'fixed horizontal']);
 //$topmenu2 = $app
