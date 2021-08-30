@@ -29,7 +29,20 @@
     $i++;
   }*/
 
-  $label = $app->add(['Label',$slot['total'],'massive','icon'=> 'users']);
+  $label = $app->add(['Button',$slot['total'],'massive','icon'=> 'users']);
+  $popup=$app->layout->add(['Popup',$label]);
+  $popup->setOption('position','top center');
+    $popup->setHoverable();
+
+    $popup->set(function($p) use($db,$slot){
+      $mid = $slot->ref('SlotsUsers');
+
+      foreach($mid as $m){
+        $u = new Users($db);
+        $u->load($m['users_id']);
+        $p->add(new UserCards($u));
+      }
+    });
   $join=$app->add(['Button','Вступить']);
   if(!isset($_SESSION['user_id'])){
     $join->addClass('disabled');

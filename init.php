@@ -6,6 +6,7 @@ require 'lib/Slots.php';
 require 'lib/SlotsUsers.php';
 require 'lib/Users.php';
 require 'lib/Cards.php';
+require 'lib/UserCards.php';
 //New app//
 $app = new \atk4\ui\App('Vpiski.NET');
 if (isset($_ENV['CLEARDB_DATABASE_URL'])) {

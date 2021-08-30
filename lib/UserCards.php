@@ -1,10 +1,10 @@
 <?php
 
-class Cards extends \atk4\ui\View {
+class UserCards extends \atk4\ui\View {
 
     public $ui = 'button';
     public $rating;
-
+  //  public $class =['tiny'];
 
     public function __construct($obj)  {
 
@@ -13,17 +13,19 @@ class Cards extends \atk4\ui\View {
 
         $this->init();
       //  $this->id = '#_atk_'.$obj->id;
-        $this->add(['Image',$obj['image'],'rounded']);
-        $this->add(['Header',$obj['name']]);
+      $columns = $this->add('Columns');
+      $col1 = $columns->addColumn(8);
+      $col2 = $columns->addColumn(8);
+        $col2->add(['Image',$obj['image'],'tiny rounded']);
+        $col1->add(['Header',$obj['name']]);
     //    $this->add($rating);
     //    unset($rating);
 
         $rating = new \atk4\ui\View(['ui' => 'rating disabled']);
         $rating->id = '_rating_'.$obj->id;
-          $this->link(['party','id'=>$obj->id]);
-          $rating->js(true)->rating(['maxRating' => 5, 'initialRating' => round($obj['total_rating'])]);//->clear();
-          $this->add(['Label',$obj['total'],'icon'=>'users']);
-        $this->add($rating);
+          $this->link(['profile','id'=>$obj->id]);
+          $rating->js(true)->rating(['maxRating' => 5, 'initialRating' => round($obj['rating'])]);
+        $col1->add($rating);
 
     //    $this->js()->clear();
       //  unset($this->_js_actions);
