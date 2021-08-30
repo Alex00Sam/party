@@ -3,7 +3,7 @@ require 'init.php';
 $slot = new Slots($db);
 
   $form =$app->add('Form');
-  $form -> setModel($slot,['name','description','image','is_private']);
+  $form -> setModel($slot,['name','description','image','date','time','is_private']);
   $form->onSubmit(function($f)use($slot,$db,$current_user){
 
     $f->model->save();

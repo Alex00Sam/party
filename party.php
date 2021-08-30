@@ -73,15 +73,19 @@
       });
 
       $vp = $app->add('VirtualPage');
-      $vp->set(function ($page) use ($slot) {
-          $form = $page->add('Form')->setModel($slot);
+      $vp->set(function ($page) use($slot) {
+          $form = $page->add('Form');
+          $form->setModel($slot);
           $form->onSubmit(function($f){
-            $form->model->save();
+            $f->model->save();
+            return new \atk4\ui\jsExpression('document.location=""');
           });
       });
       $ch = $app->add(['Button','Редактировать слот']);
       $ch->on('click',new \atk4\ui\jsModal('Редактировать слот', $vp));
     }
+    $text = "New+york";
+    $app->add('View',['template'=>new \atk4\ui\Template('<b>Hello</b>')]);
 
 
     //var_dump($mid);
