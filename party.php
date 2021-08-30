@@ -20,7 +20,7 @@
 
   $rr = $app->add($rating);
 
-  $r_label = $app->add(['Label',$slot['total_rating'],'circular massive']);
+  $r_label = $app->add(['Label',round($slot['total_rating'],2),'circular massive']);
 
   $mid = $slot->ref('SlotsUsers');
   /*
