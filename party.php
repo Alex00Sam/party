@@ -71,12 +71,15 @@
         $slot->delete();
         return new \atk4\ui\jsExpression('document.location="index.php"');
       });
-      $ch = $app->add(['Button','Редактировать слот']);
-      $vp = \Atk4\Ui\VirtualPage::addTo($app)->set(function ($page) use ($slot) {
+
+      $vp = $app->add('VirtualPage');
+      $vp->set(function ($page) use ($slot) {
           $form = $page->add('Form')->setModel($slot);
           $form->onSubmit(function($f){
             $form->model->save();
           });
+      $ch = $app->add(['Button','Редактировать слот']);
+      $ch->on('click',new \atk4\ui\jsModal('Редактировать слот', $vp));
         });
       $ch->on('click',new \Atk4\Ui\JsModal('Plane Box', $vp));
 
