@@ -28,14 +28,6 @@ $col1 = $columns->addColumn(4);
 $col2 = $columns->addColumn(4);
 $col3 = $columns->addColumn(4);
 
-$rat->on('click',function($b)use($columns,$slot){
-
-  return [$slot->setOrder('total_rating'),$columns->jsReload()];
-});
-$dat->on('click',function($b)use($columns,$slot){
-
-  return [$slot->setOrder('date'),$columns->jsReload()];
-});
 
 $i=1;
 foreach($slot as $a){
@@ -56,6 +48,14 @@ foreach($slot as $a){
 }
 
 
+$rat->on('click',function($b)use($columns,$slot){
+  $slot->setOrder('total_rating');
+  return [$columns->jsReload()];
+});
+$dat->on('click',function($b)use($columns,$slot){
+  $slot->setOrder('date');
+  return [$columns->jsReload()];
+});
 //$map = new \atk4\ui\View(['template' => new \atk4\ui\Template('<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=R%C4%ABga%2C%20%D0%9B%D0%B0%D1%82%D0%B2%D0%B8%D1%8F&key=AIzaSyDyaaCYY8N0TZsKiz--wJ2pyC3edh3Ik2I"></iframe>')]);
 //$app->add($map);
 //$col3->add(['Button','click'])->link(['index','id'=>2]);
