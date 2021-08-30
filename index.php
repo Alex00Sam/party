@@ -30,11 +30,11 @@ $col3 = $columns->addColumn(4);
 
 $rat->on('click',function($b)use($columns,$slot){
   $slot->setOrder('total_rating');
-  return [$columns->jsReload(),$slot];
+  return $columns->jsReload();
 });
 $dat->on('click',function($b)use($columns,$slot){
   $slot->setOrder('date');
-  return [$columns->jsReload(),$slot];
+  return $columns->jsReload();
 });
 
 $i=1;
