@@ -30,7 +30,8 @@ $col1 = $columns->addColumn(4);
 $col2 = $columns->addColumn(4);
 $col3 = $columns->addColumn(4);
 $rat->on('click',function($b)use($columns,$slot){
-  $slot->setOrder('total_rating');
+  //$slot->setOrder('total_rating');
+  $slot->load(1);
   return [$columns->jsReload()];
 });
 $dat->on('click',function($b)use($columns,$slot){
