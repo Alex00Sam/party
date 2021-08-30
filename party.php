@@ -78,11 +78,9 @@
           $form->onSubmit(function($f){
             $form->model->save();
           });
+      });
       $ch = $app->add(['Button','Редактировать слот']);
       $ch->on('click',new \atk4\ui\jsModal('Редактировать слот', $vp));
-        });
-      $ch->on('click',new \Atk4\Ui\JsModal('Plane Box', $vp));
-
     }
 
 
