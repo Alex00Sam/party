@@ -49,7 +49,7 @@
 
   } else{
       if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded())) {
-        $join->on('click',function($join)use($db,$slots_id,$slot,$label,$current_user,$rr,$r_label,$rating){
+        $join->on('click',function($join)use($db,$slots_id,$label,$current_user,$rr,$r_label,$rating,$popup){
           $su=new SlotsUsers($db);
           $su['users_id']=$_SESSION['user_id'];
           $su['slots_id']=$slots_id;
@@ -65,7 +65,7 @@
         });
       } else{
         $join->set('Вы вступили');
-        $join->on('click',function($join)use($mid,$label,$rr,$r_label,$rating,$slot,$current_user){
+        $join->on('click',function($join)use($mid,$label,$rr,$r_label,$rating,$popup){
           $mid->loadBy('users_id',$_SESSION['user_id'])->delete();
         //  $label->jsReload();
         /*if($current_user['gender']=="Мужской") $slot['male']--;
