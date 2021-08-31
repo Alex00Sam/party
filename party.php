@@ -121,7 +121,7 @@
       $col2->add($map);
     }
     $col2->add(['Label','Дата:','icon'=>'calendar alternate outline']);
-    $col2->add(['Header',date($slot['date'])]);
+  //  $col2->add(['Header',date($slot['date'])]);
     $col2->add(['Label','test','image'=>$slot['image']]);
 
     //var_dump($mid);
