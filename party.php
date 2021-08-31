@@ -60,7 +60,7 @@
           $su->save();
         //  $label->jsReload();
 
-         return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$join->text('Вы вступили')];//
+         return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$popup->jsReload(),$join->text('Вы вступили')];//
 
         });
       } else{
@@ -71,7 +71,7 @@
         /*if($current_user['gender']=="Мужской") $slot['male']--;
         else $slot['female']--;
         $slot->save();*/
-          return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$join->text('Вступить')];
+          return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$popup->jsReload(),$join->text('Вступить')];
         });
       }
     }

@@ -26,8 +26,10 @@ $header = $app->layout->add([
     'icon'=>'bomb',
     'size'=>'huge',
     'aligned' => 'centered'
-
     ], 'Header');
+    $header->addStyle('
+     position: relative;
+     top: 30px;');
 $header->link(['index']);
 //////////
 $topmenu = $app->add(['Menu', 'fixed horizontal']);
