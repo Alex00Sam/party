@@ -50,8 +50,7 @@
       foreach($mid as $m){
         $u = new Users($db);
         $u->load($m['users_id']);
-      //  $p->add(new UserCards($u));
-        $p->add(['Button',$u['name'],'image'=>$u['image']]);
+        $p->add(new UserCards($u));
       }
     });
   $join=$app->add(['Button','Вступить']);
@@ -122,8 +121,8 @@
       $col2->add($map);
     }
     $col2->add(['Label','Дата:','icon'=>'calendar alternate outline']);
-  //  $col2->add(['Header',date($slot['date'])]);
-    $col2->add(['Label','test','image'=>$slot['image']]);
+    $col2->add(['Header'$slot['date']]);
+  //  $col2->add(['Label','test','image'=>$slot['image']]);
 
     //var_dump($mid);
       /*  $popup=$app->add(['Popup',$join]);
