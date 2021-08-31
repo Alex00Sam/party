@@ -50,7 +50,8 @@
       foreach($mid as $m){
         $u = new Users($db);
         $u->load($m['users_id']);
-        $p->add(new UserCards($u));
+      //  $p->add(new UserCards($u));
+        $p->add(['Button',$u['name'],'image'=>$u['image']]);
       }
     });
   $join=$app->add(['Button','Вступить']);
