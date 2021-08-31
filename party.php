@@ -93,7 +93,7 @@
       $vp = $app->add('VirtualPage');
       $vp->set(function ($page) use($slot) {
           $form = $page->add('Form');
-          $form->setModel($slot);
+          $form->setModel($slot,['name','image','description','date','time','place','is_private','gender']);
           $form->onSubmit(function($f){
             $f->model->save();
             return new \atk4\ui\jsExpression('document.location=""');
