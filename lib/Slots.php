@@ -38,6 +38,10 @@ class Slots extends \atk4\data\Model {
 		$this->addField('creator_id');
 		$this->addField('date',['type'=>'date']);
 		$this->addField('time',['type'=>'time']);
+		$this->addField('place',['caption'=>'Место (адрес)']);
+		$this->addField('showmap',['type'=>'boolean','caption'=>'Показавыть карту']);
+
+
 
 	}
 }

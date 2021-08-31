@@ -38,6 +38,7 @@ $topmenu = $app->add(['Menu', 'fixed horizontal']);
 //$topmenu->add(['ui'=>'right floated button green']);
 //$b_group = $topmenu->add(['ui'=>'horizontal buttons']);
 $home = $topmenu->add(['ui'=>'button red'])->set('Домой')->link(['index']);
+$home->icon = new \atk4\ui\Icon('home');
 $admin = $topmenu->add(['ui'=>'button red'])->set('Админ')->link(['admin']);
 if(isset($_SESSION['user_id'])){
   $current_user=new Users($db);

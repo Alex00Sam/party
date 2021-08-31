@@ -7,10 +7,20 @@
   $slot->load($slots_id);
   $creatoruser=new Users($db);
   $creatoruser->load($slot['creator_id']);
-  $app->add(['Header',$slot['name']]);
-  $cr = $app->add(new \atk4\ui\View('Организатор: '.$creatoruser['name'].' '.$creatoruser['surname']));
+/*
+  $columns=$app->add('Columns');
+  $row1 = $columns
+  */
+  $segment = $app->add(['ui'=>'segment']);
+  $segment->add(['Header',$slot['name']]);
+  $cr = $segment->add(new \atk4\ui\View('Организатор: '.$creatoruser['name'].' '.$creatoruser['surname']));
   //$cr->addClass('red');
-  $img = $app->add(['Image',$slot['image'],'rounded']);
+  $app->add(['ui'=>'divider']);
+  $columns = $app->add('Columns');
+  $col1 = $columns->addColumn(12);
+  $col2 = $columns->addColumn(4);
+  $img = $col1->add(['Image',$slot['image'],'rounded']);
+  $img->addStyle('width:50%;');
   $app->add(['ui'=>'hidden divider']);
   $app->add(['Text',$slot['description']]);
   $app->add(['ui'=>'hidden divider']);
@@ -29,7 +39,7 @@
     $i++;
   }*/
 
-  $label = $app->add(['Button',$slot['total'],'massive','icon'=> 'users']);
+  $label = $app->add(['Button',$slot['total'],'big','icon'=> 'users']);
   $popup=$app->layout->add(['Popup',$label]);
   $popup->setOption('position','top center');
     $popup->setHoverable();
@@ -78,12 +88,7 @@
 
     if($slot['creator_id']==$_SESSION['user_id']){
       $join->addClass('disabled');
-      $del = $app->add(['Button','Удалить слот']);
 
-      $del->on('click',function($b)use($slot){
-        $slot->delete();
-        return new \atk4\ui\jsExpression('document.location="index.php"');
-      });
 
       $vp = $app->add('VirtualPage');
       $vp->set(function ($page) use($slot) {
@@ -93,10 +98,26 @@
             $f->model->save();
             return new \atk4\ui\jsExpression('document.location=""');
           });
+          $page->add(['ui'=>'hidden divider']);
+
+          $del = $page->add(['Button','Удалить слот','negative basic']);
+          $popup = $page->add(['Popup',$del]);
+          $popup->set(function ($page2) use($slot,$del) {
+                $page2->add(['Header','Вы уверены?']);
+                $yes = $page2->add(['Button','Удалить','red']);
+                $yes->on('click',function($b)use($slot){
+                  $slot->delete();
+                  return new \atk4\ui\jsExpression('document.location="index.php"');
+                });
+          });
       });
       $ch = $app->add(['Button','Редактировать слот']);
       $ch->on('click',new \atk4\ui\jsModal('Редактировать слот', $vp));
     }
+    $col2->add(['Label','Место:',['icon'=>'map marker alternate']]);
+    $col2->add(['Header',$slot['place']]);
+    $map = new \atk4\ui\View(['template' => new \atk4\ui\Template('    <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q='.$search.'&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>')]);
+    $col2->add($map);
 
     //var_dump($mid);
       /*  $popup=$app->add(['Popup',$join]);
