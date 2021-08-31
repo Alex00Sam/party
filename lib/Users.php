@@ -19,7 +19,7 @@ class Users extends \atk4\data\Model {
 		$this->addField('vk');
 		$this->addField('inst');
     $this->addField('image');
-		$this->addField('dob',['caption'=>'Дата рождения']);
+		$this->addField('dob',['caption'=>'Дата рождения','type'=>'date']);
 
 		$this->hasMany('SlotsUsers',new SlotsUsers());
 	}
