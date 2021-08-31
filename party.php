@@ -20,7 +20,7 @@
   $col1 = $columns->addColumn(12);
   $col2 = $columns->addColumn(4);
   $img = $col1->add(['Image',$slot['image'],'rounded']);
-  $img->addStyle('width:50%;');
+  //$img->addStyle('width:50%;');
   $app->add(['ui'=>'hidden divider']);
   $app->add(['Text',$slot['description']]);
   $app->add(['ui'=>'hidden divider']);
