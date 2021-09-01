@@ -54,41 +54,41 @@
       }
     });
   $join=$app->add(['Button','Вступить']);
-  if(!isset($_SESSION['user_id'])){
+  if($slot['capacity']<=$slot['total']){
     $join->addClass('disabled');
-
+    $join->set('Свободных мест нет');
   } else{
-      if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded()) and ($slot['capacity']>$slot['total'])) {
-        $join->on('click',function($join)use($db,$slots_id,$label,$current_user,$rr,$r_label,$rating,$popup){
-          $su=new SlotsUsers($db);
-          $su['users_id']=$_SESSION['user_id'];
-          $su['slots_id']=$slots_id;
-          $su['slots_rating']=$current_user['rating'];
-          /*if($current_user['gender']=="Мужской") $slot['male']++;
-          else $slot['female']++;
-          $slot->save();*/
-          $su->save();
-        //  $label->jsReload();
-
-         return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$popup->jsReload(),$join->text('Вы вступили')];//
-
-        });
-      } elseif($slot['capacity']<=$slot['total']){
+      if(!isset($_SESSION['user_id'])){
         $join->addClass('disabled');
-        $join->set('Свободных мест нет');
       } else{
-        $join->set('Вы вступили');
-        $join->on('click',function($join)use($mid,$label,$rr,$r_label,$rating,$popup){
-          $mid->loadBy('users_id',$_SESSION['user_id'])->delete();
-        //  $label->jsReload();
-        /*if($current_user['gender']=="Мужской") $slot['male']--;
-        else $slot['female']--;
-        $slot->save();*/
-          return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$popup->jsReload(),$join->text('Вступить')];
-        });
-      }
-    }
+          if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded()) and ($slot['capacity']>$slot['total'])) {
+            $join->on('click',function($join)use($db,$slots_id,$label,$current_user,$rr,$r_label,$rating,$popup){
+              $su=new SlotsUsers($db);
+              $su['users_id']=$_SESSION['user_id'];
+              $su['slots_id']=$slots_id;
+              $su['slots_rating']=$current_user['rating'];
+              /*if($current_user['gender']=="Мужской") $slot['male']++;
+              else $slot['female']++;
+              $slot->save();*/
+              $su->save();
+            //  $label->jsReload();
 
+             return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$popup->jsReload(),$join->text('Вы вступили')];//
+
+            });
+          } else{
+              $join->set('Вы вступили');
+              $join->on('click',function($join)use($mid,$label,$rr,$r_label,$rating,$popup){
+                $mid->loadBy('users_id',$_SESSION['user_id'])->delete();
+              //  $label->jsReload();
+              /*if($current_user['gender']=="Мужской") $slot['male']--;
+              else $slot['female']--;
+              $slot->save();*/
+                return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$popup->jsReload(),$join->text('Вступить')];
+            });
+          }
+        }
+}
     if($slot['creator_id']==$_SESSION['user_id']){
       $join->addClass('disabled');
 
