@@ -58,7 +58,7 @@
     $join->addClass('disabled');
 
   } else{
-      if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded())) {
+      if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded()) and ($slot['max']>$slot['total'])) {
         $join->on('click',function($join)use($db,$slots_id,$label,$current_user,$rr,$r_label,$rating,$popup){
           $su=new SlotsUsers($db);
           $su['users_id']=$_SESSION['user_id'];
@@ -73,6 +73,9 @@
          return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$popup->jsReload(),$join->text('Вы вступили')];//
 
         });
+      } elseif($slot['max']<=$slot['total']){
+        $join->addClass('disabled');
+        $join->set('Свободных мест нет');
       } else{
         $join->set('Вы вступили');
         $join->on('click',function($join)use($mid,$label,$rr,$r_label,$rating,$popup){
@@ -101,8 +104,8 @@
           $page->add(['ui'=>'hidden divider']);
 
           $del = $page->add(['Button','Удалить слот','negative basic']);
-          $popup = $page->add(['Popup',$del]);
-          $popup->set(function ($page2) use($slot,$del) {
+          $popup2 = $page->add(['Popup',$del]);
+          $popup2->set(function ($page2) use($slot,$del) {
                 $page2->add(['Header','Вы уверены?']);
                 $yes = $page2->add(['Button','Удалить','red']);
                 $yes->on('click',function($b)use($slot){
