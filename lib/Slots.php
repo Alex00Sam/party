@@ -40,7 +40,7 @@ class Slots extends \atk4\data\Model {
 		$this->addField('time',['type'=>'time']);
 		$this->addField('place',['caption'=>'Место (адрес)']);
 		$this->addField('showmap',['type'=>'boolean','caption'=>'Показавыть карту']);
-		$this->addField('max',['caption'=>'Максимальное число участников']);
+		$this->addField('capacity',['caption'=>'Максимальное число участников']);
 
 
 	}

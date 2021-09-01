@@ -58,7 +58,7 @@
     $join->addClass('disabled');
 
   } else{
-      if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded()) and ($slot['max']>$slot['total'])) {
+      if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded()) and ($slot['capacity']>$slot['total'])) {
         $join->on('click',function($join)use($db,$slots_id,$label,$current_user,$rr,$r_label,$rating,$popup){
           $su=new SlotsUsers($db);
           $su['users_id']=$_SESSION['user_id'];
@@ -73,7 +73,7 @@
          return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$popup->jsReload(),$join->text('Вы вступили')];//
 
         });
-      } elseif($slot['max']<=$slot['total']){
+      } elseif($slot['capacity']<=$slot['total']){
         $join->addClass('disabled');
         $join->set('Свободных мест нет');
       } else{
