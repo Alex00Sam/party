@@ -57,7 +57,7 @@
   if($slot['capacity']<=$slot['total'] and !$mid->tryLoadBy('users_id',$_SESSION['user_id']) or !isset($_SESSION['user_id'])){
     $join->addClass('disabled');
     $join->set('Свободных мест нет');
-    if( !isset($_SESSION['user_id']))){
+    if(!isset($_SESSION['user_id'])){
       $join->addClass('disabled');
     }
   } else{
