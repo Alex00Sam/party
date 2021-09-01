@@ -54,7 +54,7 @@
       }
     });
   $join=$app->add(['Button','Вступить']);
-  if($slot['capacity']<=$slot['total'] and !$mid->tryLoadBy('users_id',$current_user->id)){
+  if($slot['capacity']<=$slot['total'] and !$mid->tryLoadBy('users_id',$_SESSION['user_id'])){
     $join->addClass('disabled');
     $join->set('Свободных мест нет');
   } else{
