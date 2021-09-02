@@ -25,7 +25,7 @@ $layout = $app->initLayout(new MLayout());
 //$menu->addItem('test')->addClass('aligned right');
 
 $current_user=new Users($db);
-$current_user->load($_SESSION['user_id']);
+$current_user->tryLoad($_SESSION['user_id']);
 /*
 $app->layout->template->del('Header');
 
