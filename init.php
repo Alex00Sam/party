@@ -43,7 +43,7 @@ if($_SERVER['PHP_SELF']=='/index.php'){
          top: 30px;');
     $header->link(['index']);
 } else {
-  $logo = $topmenu->add(['ui'=>'button red','icon'=>'bomb'])->set('Vpiski.NET')->link(['index']);
+  $logo = $topmenu->add(['ui'=>'button red'])->addClass(['icon'=>'bomb'])->set('Vpiski.NET')->link(['index']);
 }
 $admin = $topmenu->add(['ui'=>'button red'])->set('Админ')->link(['admin']);
 if(isset($_SESSION['user_id'])){
