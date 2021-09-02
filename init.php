@@ -1,5 +1,7 @@
 
 <?php
+
+
 session_start();
 require 'vendor/autoload.php';
 require 'lib/Slots.php';
@@ -19,7 +21,7 @@ if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
 ///////////
 
 //Layout//
-$layout = $app->initLayout(new \lib\Maestro());
+$layout = $app->initLayout(new Maestro());
 //$menu->addItem('test')->addClass('aligned right');
 /*
 $app->layout->template->del('Header');
