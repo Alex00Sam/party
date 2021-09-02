@@ -20,7 +20,7 @@ class MLayout extends \atk4\ui\Layout\Maestro
     {
         parent::init();
         $this->menu->addItem('test');
-        $this->menuLeft->js(true)->parent()->hide();
+        $this->menuLeft->js(true)->parent()->removeClass();
     }
 
     public function addMenuGroup($seed): Menu
