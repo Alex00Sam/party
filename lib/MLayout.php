@@ -18,13 +18,43 @@ class MLayout extends \atk4\ui\Layout\Maestro
 
     public function init(): void
     {
+        if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
+            $db = new \atk4\data\Persistence\SQL($_ENV['CLEARDB_DATABASE_URL']);
+        } else {
+            $db = new \atk4\data\Persistence\SQL('mysql:dbname=party;localhost', 'MySite', '12345');
+        }
         parent::init();
         if($_SESSION['user_id']==1) $this->menu->addItem('Admin',['admin']);
         if(isset($_SESSION['user_id'])){
 
         } else{
-            $this->menuRight->addItem('Войти');
-            $this->menuRight->addItem('Зарегистрироваться');
+            $login = $this->menuRight->addItem('Войти');
+            $popup=$this->add(['Popup',$login]);
+            $popup->setOption('position','bottom center');
+            $popup->setHoverable();
+            $popup->set(function($p) use($db){
+                $user = new Users($db);
+                $form = $p->add('Form');
+                $form->setModel(new Users($db),['login','password']);
+                $form->buttonSave->set('Sign in');
+                $form->onSubmit(function($form) use ($user) {
+                    $user->tryLoadBy('login',$form->model['login']);
+                    if (isset($user->id)){
+                        if ($user['password'] === $form->model['password']) {
+                            $_SESSION['user_id'] = $user->id;
+                            return new \atk4\ui\jsExpression('document.location=""');
+                        } else {
+                            $user->unload();
+                            $er = (new \atk4\ui\jsNotify('Wrong login/password'));
+                            $er->setColor('red');
+                            return $er;
+                        }
+                    } else{
+                        return new atk4\ui\jsNotify(['content' => 'No such user.', 'color' => 'red']);
+                    }
+                });
+            });
+            $this->menuRight->addItem('Зарегистрироваться',['register']);
         }
         //$this->menuLeft->addItem();
     }
