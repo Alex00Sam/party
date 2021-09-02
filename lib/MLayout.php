@@ -7,7 +7,8 @@
  */
 
 
-
+use atk4\ui\Header;
+use atk4\ui\Icon;
 use atk4\ui\Item;
 use atk4\ui\jQuery;
 use atk4\ui\Menu;
@@ -18,12 +19,33 @@ class MLayout extends \atk4\ui\Layout\Maestro
 
     public function init(): void
     {
+        \atk4\ui\Layout\Generic::init();
+
+        if ($this->menu === null) {
+            $this->menu = Menu::addTo($this, ['inverted fixed horizontal', 'element' => 'header'], ['TopMenu']);
+            $this->burger = $this->menu->addItem(['class' => ['icon']]);
+            $this->burger->on('click', [
+                (new jQuery('.atk-sidenav'))->toggleClass('visible'),
+                (new jQuery('body'))->toggleClass('atk-sidenav-visible'),
+            ]);
+            Icon::addTo($this->burger, ['content']);
+            Header::addTo($this->menu, [$this->app->title, 'size' => 4,])->link(['index']);
+
+        }
+
+        if ($this->menuRight === null) {
+            $this->menuRight = Menu::addTo($this->menu, ['ui' => false], ['RightMenu'])
+                ->addClass('right menu')->removeClass('item');
+        }
+
+        if ($this->menuLeft === null) {
+            $this->menuLeft = Menu::addTo($this, ['ui' => 'atk-sidenav-content'], ['LeftMenu']);
+        }
         if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
             $db = new \atk4\data\Persistence\SQL($_ENV['CLEARDB_DATABASE_URL']);
         } else {
             $db = new \atk4\data\Persistence\SQL('mysql:dbname=party;localhost', 'MySite', '12345');
         }
-        parent::init();
         if($_SESSION['user_id']==1) $this->menu->addItem('Admin',['admin']);
         if(isset($_SESSION['user_id'])){
             $this->menuRight->addItem('Выйти',['logout']);
