@@ -19,7 +19,13 @@ class MLayout extends \atk4\ui\Layout\Maestro
     public function init(): void
     {
         parent::init();
-        $this->menu->addItem('Admin',['admin']);
+        if($_SESSION['user_id']==1) $this->menu->addItem('Admin',['admin']);
+        if(isset($_SESSION['user_id'])){
+
+        } else{
+            $this->menuRight->addItem('Войти');
+            $this->menuRight->addItem('Зарегистрироваться');
+        }
         //$this->menuLeft->addItem();
     }
 
