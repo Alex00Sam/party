@@ -44,7 +44,7 @@ if($_SERVER['PHP_SELF']=='/index.php'){
 } else {
   $app->addStyle('
    position: relative;
-   top: 30px;');
+   top: 50px;');
   $logo = $topmenu->add(['ui'=>'button red'])->set('Vpiski.NET')->link(['index']);
 }
 $admin = $topmenu->add(['ui'=>'button red'])->set('Админ')->link(['admin']);
