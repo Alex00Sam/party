@@ -37,7 +37,11 @@ $topmenu = $app->add(['Menu', 'fixed horizontal']);
 //$topmenu->add(['ui'=>'right floated button blue']);
 //$topmenu->add(['ui'=>'right floated button green']);
 //$b_group = $topmenu->add(['ui'=>'horizontal buttons']);
-$home = $topmenu->add(['ui'=>'button red'])->set('Домой')->link(['index']);
+if(!$_SERVER['PHP_SELF']=='/index.php') {
+  $logo = $topmenu->add(['ui'=>'button red','icon'=>'bomb'])->set('Vpiski.NET')->link(['index']);
+} else{
+    $home = $topmenu->add(['ui'=>'button red'])->set('Домой')->link(['index']);
+}
 $admin = $topmenu->add(['ui'=>'button red'])->set('Админ')->link(['admin']);
 if(isset($_SESSION['user_id'])){
   $current_user=new Users($db);
