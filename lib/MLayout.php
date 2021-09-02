@@ -20,7 +20,6 @@ class MLayout extends \atk4\ui\Layout\Maestro
     {
         parent::init();
         $this->menu->addItem('test');
-        $this->menuLeft->js(true)->parent()->addClass('hidden');
     }
 
     public function addMenuGroup($seed): Menu
@@ -41,12 +40,14 @@ class MLayout extends \atk4\ui\Layout\Maestro
         return $i;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function renderView()
     {
-        parent::renderView();
 
-        //initialize all menu group at ounce.
-        //since atkSideNav plugin default setting are for Maestro, no need to pass settings to initialize it.
+        \atk4\ui\Layout\Generic::renderView();
+
         $js = (new jQuery('.atk-maestro-sidenav'))->atkSidenav();
 
         $this->js(true, $js);
