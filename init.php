@@ -21,27 +21,29 @@ if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
 //Layout//
 $layout = $app->initLayout('Centered');
 $app->layout->template->del('Header');
-$header = $app->layout->add([
-    'Header',
-    'Vpiski.NET',
-    'icon'=>'bomb',
-    'size'=>'huge',
-    'aligned' => 'centered'
-    ], 'Header');
-    $header->addStyle('
-     position: relative;
-     top: 30px;');
-$header->link(['index']);
+
 //////////
 $topmenu = $app->add(['Menu', 'fixed horizontal']);
 //$topmenu2 = $app
 //$topmenu->add(['ui'=>'right floated button blue']);
 //$topmenu->add(['ui'=>'right floated button green']);
 //$b_group = $topmenu->add(['ui'=>'horizontal buttons']);
-if(!$_SERVER['PHP_SELF']=='/index.php') {
+
+if($_SERVER['PHP_SELF']=='/index.php'){
+  //  $home = $topmenu->add(['ui'=>'button red'])->set('Домой')->link(['index']);
+    $header = $app->layout->add([
+        'Header',
+        'Vpiski.NET',
+        'icon'=>'bomb',
+        'size'=>'huge',
+        'aligned' => 'centered'
+        ], 'Header');
+        $header->addStyle('
+         position: relative;
+         top: 30px;');
+    $header->link(['index']);
+} else {
   $logo = $topmenu->add(['ui'=>'button red','icon'=>'bomb'])->set('Vpiski.NET')->link(['index']);
-} else{
-    $home = $topmenu->add(['ui'=>'button red'])->set('Домой')->link(['index']);
 }
 $admin = $topmenu->add(['ui'=>'button red'])->set('Админ')->link(['admin']);
 if(isset($_SESSION['user_id'])){
