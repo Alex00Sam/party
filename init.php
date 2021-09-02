@@ -9,7 +9,7 @@ require 'lib/SlotsUsers.php';
 require 'lib/Users.php';
 require 'lib/Cards.php';
 require 'lib/UserCards.php';
-require 'lib/Maestro.php';
+require 'lib/MLayout.php';
 //New app//
 $app = new \atk4\ui\App('Vpiski.NET');
 if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
@@ -21,7 +21,7 @@ if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
 ///////////
 
 //Layout//
-$layout = $app->initLayout(new Maestro());
+$layout = $app->initLayout(new MLayout());
 //$menu->addItem('test')->addClass('aligned right');
 /*
 $app->layout->template->del('Header');
