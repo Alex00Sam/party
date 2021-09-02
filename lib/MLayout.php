@@ -19,7 +19,8 @@ class MLayout extends \atk4\ui\Layout\Maestro
     public function init(): void
     {
         parent::init();
-        $this->menu->addItem('test');
+        $this->menu->addItem('Admin',['admin']);
+        //$this->menuLeft->addItem();
     }
 
     public function addMenuGroup($seed): Menu
