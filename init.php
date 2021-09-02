@@ -18,7 +18,8 @@ if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
 ///////////
 
 //Layout//
-$layout = $app->initLayout('Centered');
+$layout = $app->initLayout('Maestro');
+/*
 $app->layout->template->del('Header');
 
 //////////
@@ -87,7 +88,8 @@ if(isset($_SESSION['user_id'])){
        }
        });
      });
-
+}
+*/
      /*
      $gmap = new \atk4\ui\Template('<html>
   <head>
@@ -130,7 +132,7 @@ if(isset($_SESSION['user_id'])){
     $i->js()->attr('src', $app->url('login.php'));
   });*/
   //->on('click',new \atk4\ui\jsExpression('document.location="login.php"'));
-}
+
 
 //DB Connection//
 
