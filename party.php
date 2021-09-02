@@ -53,7 +53,7 @@
         $p->add(new UserCards($u));
       }
     });
-  $join=$app->add(['Button','Вступить']);
+  $join=$app->add(['Button','Вступить'])->addClass('blue');
   if($slot['capacity']<=$slot['total'] and !$mid->tryLoadBy('users_id',$_SESSION['user_id']) or !isset($_SESSION['user_id'])){
     $join->addClass('disabled');
     $join->set('Свободных мест нет');
