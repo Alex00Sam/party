@@ -29,7 +29,7 @@ class MLayout extends \atk4\ui\Layout\Maestro
                 (new jQuery('body'))->toggleClass('atk-sidenav-visible'),
             ]);
             Icon::addTo($this->burger, ['content']);
-            Header::addTo($this->menu, [$this->app->title, 'size' => 4,])->link(['index']);
+            Header::addTo($this->menu, [$this->app->title, 'size' => 4])->link(['index']);
 
         }
 
