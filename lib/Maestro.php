@@ -6,7 +6,7 @@
  *  Note that it is possible to change these default value if another template is use.
  */
 
-namespace atk4\ui\Layout;
+
 
 use atk4\ui\Item;
 use atk4\ui\jQuery;
