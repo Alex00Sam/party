@@ -23,6 +23,9 @@ $app->layout->template->del('Header');
 
 //////////
 $topmenu = $app->add(['Menu', 'fixed horizontal']);
+$top->addStyle('
+ position: relative;
+ bottom: 50px;');
 //$topmenu2 = $app
 //$topmenu->add(['ui'=>'right floated button blue']);
 //$topmenu->add(['ui'=>'right floated button green']);
@@ -42,9 +45,6 @@ if($_SERVER['PHP_SELF']=='/index.php'){
          top: 30px;');
     $header->link(['index']);
 } else {
-  $app->addStyle('
-   position: relative;
-   top: 50px;');
   $logo = $topmenu->add(['ui'=>'button red'])->set('Vpiski.NET')->link(['index']);
 }
 $admin = $topmenu->add(['ui'=>'button red'])->set('Админ')->link(['admin']);
