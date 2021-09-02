@@ -23,7 +23,7 @@ $app->layout->template->del('Header');
 
 //////////
 $topmenu = $app->add(['Menu', 'fixed horizontal']);
-$top->addStyle('
+$topmenu->addStyle('
  position: relative;
  bottom: 50px;');
 //$topmenu2 = $app
