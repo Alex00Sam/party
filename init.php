@@ -1,5 +1,6 @@
 
 <?php
+echo $_SERVER['PHP_SELF'];
 session_start();
 require 'vendor/autoload.php';
 require 'lib/Slots.php';
