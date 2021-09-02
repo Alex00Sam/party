@@ -26,7 +26,11 @@ class MLayout extends \atk4\ui\Layout\Maestro
         parent::init();
         if($_SESSION['user_id']==1) $this->menu->addItem('Admin',['admin']);
         if(isset($_SESSION['user_id'])){
-
+            $this->menuRight->addItem('Выйти',['logout']);
+            $this->menuLeft->addItem('Мой профиль',['profile','id'=>$_SESSION['user_id']]);
+            $this->menuLeft->addItem('Куда я иду',['myslots']);
+            $this->menuLeft->addItem('Мои мероприятия',['myslots']);
+            $this->menuLeft->addItem('Добавить мероприятие',['newslot']);
         } else{
             $login = $this->menuRight->addItem('Войти');
             $popup=$this->add(['Popup',$login]);
