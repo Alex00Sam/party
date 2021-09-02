@@ -19,8 +19,8 @@ if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
 
 //Layout//
 $layout = $app->initLayout('Admin');
-$menu = $layout->menu;
-$menu->addItem('test')->addClass('aligned right');
+//$menu = $layout->menu;
+//$menu->addItem('test')->addClass('aligned right');
 /*
 $app->layout->template->del('Header');
 
