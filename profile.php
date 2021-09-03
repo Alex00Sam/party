@@ -15,7 +15,7 @@
   $s2 = $card->addSection('Контакты',$viewuser,['email','phone','country','city']);
 
   //if($current_user->id==$viewuser->id) {
-      $vp = $app->add('VirtualPage');
+      $vp = new \atk4\ui\VirtualPage();
       $vp->set(function ($vp) use ($viewuser, $card) {
           $form = $vp->add('Form');
           $form->setModel($viewuser, ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
