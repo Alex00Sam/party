@@ -124,7 +124,7 @@
     }
     $col2->add(['Label','Дата:','icon'=>'calendar alternate outline']);
     $date = new \atk4\data\Field();
-    $date = $date->toString($slot['date']);
+    $date = $date->toString($slot->get('date'));
     $col2->add(['Header',$date]);
 
   //  $col2->add(['Label','test','image'=>$slot['image']]);
