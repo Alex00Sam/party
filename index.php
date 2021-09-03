@@ -30,7 +30,7 @@ $col1 = $columns->addColumn(4);
 $col2 = $columns->addColumn(4);
 $col3 = $columns->addColumn(4);
 */
-$columns = new \atk4\ui\View(['ui'=>'grid']);
+$columns = new \atk4\ui\View(['ui'=>'stackable grid']);
 $col1 = new \atk4\ui\View(['ui'=>'five wide column']);
 $col2 = new \atk4\ui\View(['ui'=>'five wide column']);
 $col3 = new \atk4\ui\View(['ui'=>'five wide column']);
