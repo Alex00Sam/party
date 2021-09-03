@@ -116,8 +116,8 @@
       $ch = $app->add(['Button','Редактировать слот']);
       $ch->on('click',new \atk4\ui\jsModal('Редактировать слот', $vp));
     }
-    $col2->add(['Label','Место:','icon'=>'map marker alternate']);
-    $col2->add(['Header',$slot['place']]);
+    $col2->add(['Label','Место:','big basic','icon'=>'map marker alternate','detail'=>$slot['place']]);
+  //  $col2->add(['Header',$slot['place']]);
     if($slot['showmap']) {
       $map = new \atk4\ui\View(['template' => new \atk4\ui\Template('    <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q='.$slot['place'].'&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>')]);
       $col2->add($map);
@@ -125,7 +125,11 @@
     $col2->add(['ui'=>'hidden divider']);
 
     $col2->add(['Label','Дата:','big','icon'=>'calendar alternate outline','detail'=>(string)$slot['date']->format('d.m.Y')]);
-$col2->add(['Label','Время:','basic big','icon'=>'calendar alternate outline','detail'=>(string)$slot['time']->format('H:i')]);
+    if(isset($slot['time'])){
+        $col2->add(['Label','Время:','basic big','icon'=>'clock outline','detail'=>(string)$slot['time']->format('H:i')]);
+    } else{
+        $col2->add(['Label','Время:','basic big','icon'=>'clock outline','detail'=>'Весь день']);
+    }
  //   $col2->add(['Header',(string)$slot['date']->format('Y-m-d')]);
 
   //  $col2->add(['Label','test','image'=>$slot['image']]);
