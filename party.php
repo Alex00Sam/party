@@ -63,10 +63,7 @@ $app->add($columns);
       $join->addClass('basic disabled');
       $join->set('Войдите или зарегистрируйтесь, чтобы вступить');
   } else{
-        if($slot['capacity']<=$slot['total']){
-            $join->addClass('basic disabled');
-            $join->set('Свободных мест нет');
-        }
+
       if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded()) and ($slot['capacity']>$slot['total'])) {
         $join->on('click',function($join)use($db,$slots_id,$label,$current_user,$rr,$r_label,$rating,$popup){
           $su=new SlotsUsers($db);
@@ -94,7 +91,10 @@ $app->add($columns);
             return [$rating->jsReload(),$rr->jsReload(),$r_label->jsReload(),$label->jsReload(),$popup->jsReload(),$join->text('Вступить')];
         });
       }
-
+        if($slot['capacity']<=$slot['total'] and !(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded())){
+            $join->addClass('basic disabled');
+            $join->set('Свободных мест нет');
+        }
 }
 
 
