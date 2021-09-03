@@ -15,14 +15,13 @@
   $s2 = $card->addSection('Контакты',$viewuser,['email','phone','country','city']);
 
   if($_SESSION['user_id']==$viewuser->id) {
-      $vp = new \atk4\ui\VirtualPage();
-      $vp->init();
-      $vp->set(function ($vp) use ($db,$card) {
+      $vp = $card->add('VirtualPage');
+      $vp->set(function ($vp) use ($current_user) {
           $form = $vp->add('Form');
           $form->setModel(new Users($db), ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
           $form->buttonSave->set('Сохранить');
-          $form->onSubmit(function ($form) use ($card, $vp) {
-              $form->model->save();
+          $form->onSubmit(function ($f) {
+              $f->model->save();
 
               return new \atk4\ui\jsExpression('document.location=""');
           });
@@ -33,7 +32,7 @@
       $edit->init();
     //  $edit->on('click', $mod);
       //$app->add($edit);
-      $card->addButton($edit)->on('click',$mod);
+      $card->addButton($edit)->on('click',$vp);
       //
 
   }
