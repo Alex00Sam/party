@@ -126,11 +126,11 @@
     $col2->add(['ui'=>'hidden divider']);
 
     $col2->add(['Label','Дата:','big','icon'=>'calendar alternate outline','detail'=>(string)$slot['date']->format('d.m.Y')]);
-    if(isset($slot['time'])){
+ //   if(isset($slot['time'])){
         $col2->add(['Label','Время:','basic big','icon'=>'clock outline','detail'=>(string)$slot['time']->format('H:i')]);
-    } else{
-        $col2->add(['Label','Время:','basic big','icon'=>'clock outline','detail'=>'Весь день']);
-    }
+ //   } else{
+  //      $col2->add(['Label','Время:','basic big','icon'=>'clock outline','detail'=>'Весь день']);
+ //   }
  //   $col2->add(['Header',(string)$slot['date']->format('Y-m-d')]);
 
   //  $col2->add(['Label','test','image'=>$slot['image']]);
