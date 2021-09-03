@@ -124,7 +124,8 @@
     }
     $col2->add(['ui'=>'hidden divider']);
 
-    $col2->add(['Label','Дата:','big','icon'=>'calendar alternate outline','detail'=>(string)$slot['date']->format('Y-m-d')]);
+    $col2->add(['Label','Дата:','big','icon'=>'calendar alternate outline','detail'=>(string)$slot['date']->format('d.m.Y')]);
+$col2->add(['Label','Время:','basic big','icon'=>'calendar alternate outline','detail'=>(string)$slot['time']->format('H:i')]);
  //   $col2->add(['Header',(string)$slot['date']->format('Y-m-d')]);
 
   //  $col2->add(['Label','test','image'=>$slot['image']]);
