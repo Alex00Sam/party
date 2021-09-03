@@ -14,12 +14,12 @@
   $s2->addClass('center aligned');
   $s2 = $card->addSection('Контакты',$viewuser,['email','phone','country','city']);
 
-  //if($current_user->id==$viewuser->id) {
+  if($current_user->id==$viewuser->id) {
       $vp = new \atk4\ui\VirtualPage();
       $vp->init();
-      $vp->set(function ($vp) use ($viewuser, $card) {
+      $vp->set(function ($vp) use ($db,$card) {
           $form = $vp->add('Form');
-          $form->setModel($viewuser, ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
+          $form->setModel((new Users($db))->load($_SESSION['user_id']), ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
           $form->buttonSave->set('Сохранить');
           $form->onSubmit(function ($form) use ($card, $vp) {
               $form->model->save();
@@ -36,7 +36,7 @@
       $card->addButton($edit);
       //
 
- // }
+  }
 
 
 //$card->setModel($user);
