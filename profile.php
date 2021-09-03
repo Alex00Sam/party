@@ -33,7 +33,7 @@
       $edit->init();
     //  $edit->on('click', $mod);
       //$app->add($edit);
-      $card->addButton($edit)->on('click',$edit);
+      $card->addButton($edit)->on('click',$mod);
       //
 
   }
