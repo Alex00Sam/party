@@ -65,7 +65,7 @@ class MLayout extends \atk4\ui\Layout\Maestro
                 $user = new Users($db);
                 $form = $p->add('Form');
                 $form->setModel(new Users($db),['login','password']);
-                $form->buttonSave->set('Sign in');
+                $form->buttonSave->set('Войти');
                 $form->onSubmit(function($form) use ($user) {
                     $user->tryLoadBy('login',$form->model['login']);
                     if (isset($user->id)){
