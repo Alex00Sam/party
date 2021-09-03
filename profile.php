@@ -19,7 +19,7 @@
       $vp->init();
       $vp->set(function ($vp) use ($db,$card) {
           $form = $vp->add('Form');
-          $form->setModel((new Users($db))->load($_SESSION['user_id']), ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
+          $form->setModel(new Users($db), ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
           $form->buttonSave->set('Сохранить');
           $form->onSubmit(function ($form) use ($card, $vp) {
               $form->model->save();
