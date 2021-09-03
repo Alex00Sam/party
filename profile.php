@@ -2,7 +2,7 @@
   require 'init.php';
   $card = $app->add(['Card','','big centered']);
     $viewuser = new Users($db);
-    $viewuser->load($_GET['id']);
+    $viewuser->load($app->stickyGet('id'));
   $card->addContent(new \atk4\ui\Header($viewuser['name']." ".$viewuser['surname']));
   $rating = new \atk4\ui\View(['ui' => 'massive rating disabled']);
   $rating->js(true)->rating(['maxRating' => 5, 'initialRating' => round($viewuser['rating'])]);
