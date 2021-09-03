@@ -34,6 +34,10 @@ $columns = new \atk4\ui\View(['ui'=>'grid']);
 $col1 = new \atk4\ui\View(['ui'=>'five wide column']);
 $col2 = new \atk4\ui\View(['ui'=>'five wide column']);
 $col3 = new \atk4\ui\View(['ui'=>'five wide column']);
+$columns->add($col1);
+$columns->add($col2);
+$columns->add($col3);
+$app->add($columns);
 $rat->on('click',function($b)use($columns,$slot){
   $slot->setOrder('total_rating');
   return [$columns->jsReload()];
