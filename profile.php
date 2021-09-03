@@ -16,7 +16,7 @@
 $vp = $app->add('VirtualPage');
 $vp->set(function ($vp) //use ($current_user)
 {
-    $form = $vp->add('Form');
+  //  $form = $vp->add('Form');
  /*   $form->setModel(new Users($db), ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
     $form->buttonSave->set('Сохранить');
     $form->onSubmit(function ($f) {
