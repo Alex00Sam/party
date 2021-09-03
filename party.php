@@ -123,7 +123,9 @@
       $col2->add($map);
     }
     $col2->add(['Label','Дата:','icon'=>'calendar alternate outline']);
-    $col2->add(['Header',(new \atk4\data\Field())->toString($slot['date'])]);
+    $date = new \atk4\data\Field();
+    $date = $date->toString($slot['date']);
+    $col2->add(['Header',$date]);
 
   //  $col2->add(['Label','test','image'=>$slot['image']]);
 
