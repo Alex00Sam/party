@@ -9,8 +9,8 @@ class Slots extends \atk4\data\Model {
 	function init() :void{
 		parent::init();
 
-		$this->addField('name');
-		$this->addField('image');
+		$this->addField('name',['caption'=>'Название','required'=>'true']);
+		$this->addField('image',['caption'=>'Изображение (URL из интернета)']);
 		$su=$this->hasMany('SlotsUsers',new SlotsUsers());
 		$su->addField('total_rating',['aggregate'=>'avg','field'=>'slots_rating']);
 		$su->addField('total',['aggregate'=>'count']);
@@ -28,17 +28,17 @@ class Slots extends \atk4\data\Model {
 	//	$this->addField('rating');//->set($this->total_rating);
 
 
-		$this->addField('description');
+		$this->addField('description',['caption'=>'Описание']);
 		$this->addField('male');
 		$this->addField('female');
 //		$this->addFields(['male','female']);//,['read_only'=>true]);
   //	$this->addExpression('total', '[male] + [female]');
-		$this->addField('gender',['type'=>'boolean']);
-		$this->addField('is_private',['type'=>'boolean']);
+		$this->addField('gender',['type'=>'boolean','caption'=>'Пол']);
+		$this->addField('is_private',['caption'=>'Частное мероприятие','type'=>'boolean']);
 		$this->addField('creator_id');
-		$this->addField('date',['type'=>'date']);
-		$this->addField('time',['type'=>'time']);
-		$this->addField('place',['caption'=>'Место (адрес)']);
+		$this->addField('date',['caption'=>'Дата','type'=>'date','required'=>'true']);
+		$this->addField('time',['caption'=>'Время','type'=>'time']);
+		$this->addField('place',['caption'=>'Место (адрес)','required'=>'true']);
 		$this->addField('showmap',['type'=>'boolean','caption'=>'Показавыть карту']);
 		$this->addField('capacity',['caption'=>'Максимальное число участников']);
 
