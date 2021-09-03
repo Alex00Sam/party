@@ -111,6 +111,11 @@ class MLayout extends \atk4\ui\Layout\Maestro
     {
 
         \atk4\ui\Layout\Generic::renderView();
+        if (isset($_SESSION['user_id'])) {
+            $this->menuLeft->js(true)->parent()->addClass('visible');
+        }else{
+            $this->burger->js()->hide();
+        }
 
         $js = (new jQuery('.atk-maestro-sidenav'))->atkSidenav();
 
