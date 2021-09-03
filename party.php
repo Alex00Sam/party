@@ -79,6 +79,7 @@
         });
       } else{
           $join->set('Вы вступили');
+          $join->addClass('basic');
           $join->on('click',function($join)use($mid,$label,$rr,$r_label,$rating,$popup){
             $mid->loadBy('users_id',$_SESSION['user_id'])->delete();
           //  $label->jsReload();
