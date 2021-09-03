@@ -16,6 +16,7 @@
 
   //if($current_user->id==$viewuser->id) {
       $vp = new \atk4\ui\VirtualPage();
+      $vp->init();
       $vp->set(function ($vp) use ($viewuser, $card) {
           $form = $vp->add('Form');
           $form->setModel($viewuser, ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
