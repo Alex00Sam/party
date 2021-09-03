@@ -57,11 +57,8 @@ $app->add($columns);
       }
     });
   $join=$app->add(['Button','Вступить'])->addClass('blue');
-if($slot['capacity'])
-    if($slot['capacity']<=$slot['total'] and !$mid->tryLoadBy('users_id',$_SESSION['user_id'])){
-        $join->addClass('basic disabled');
-        $join->set('Свободных мест нет');
-    }
+
+
     if(!isset($_SESSION['user_id'])){
       $join->addClass('basic disabled');
       $join->set('Войдите или зарегистрируйтесь, чтобы вступить');
@@ -95,6 +92,10 @@ if($slot['capacity'])
       }
 }
 
+if($slot['capacity']<=$slot['total'] and !$mid->tryLoadBy('users_id',$_SESSION['user_id'])){
+    $join->addClass('basic disabled');
+    $join->set('Свободных мест нет');
+}
 
     if($slot['creator_id']==$_SESSION['user_id']){
       $join->addClass('disabled');
