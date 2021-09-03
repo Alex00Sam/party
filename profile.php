@@ -14,17 +14,14 @@
   $s2->addClass('center aligned');
   $s2 = $card->addSection('Контакты',$viewuser,['email','phone','country','city']);
 $vp = $app->add('VirtualPage');
-$vp->set(function ($vp) //use ($current_user)
-{
-  //  $form = $vp->add('Form');
- /*   $form->setModel(new Users($db), ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
+$vp->set(function ($page) use ($current_user) {
+    $form = $page->add('Form');
+    $form->setModel($current_user, ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
     $form->buttonSave->set('Сохранить');
     $form->onSubmit(function ($f) {
         $f->model->save();
-
         return new \atk4\ui\jsExpression('document.location=""');
     });
-*/
 });
   if($_SESSION['user_id']==$viewuser->id) {
 
@@ -34,7 +31,7 @@ $vp->set(function ($vp) //use ($current_user)
      // $edit->init();
      // $app->add($edit);
       $edit = $app->add(['Button','test']);
-      $edit->on('click',new \atk4\ui\jsModal( 'test',$vp));
+      $edit->on('click',new \atk4\ui\jsModal( 'Мой профиль',$vp));
 
    //   $card->addClickAction($vp,new \atk4\ui\Button('Изменить'));
       //
