@@ -27,13 +27,13 @@
       });
      // $mod = new \atk4\ui\jsModal('', $vp);
       //$mod->init();
-     // $edit = new \atk4\ui\Button('Изменить');
-     // $edit->init();
+      $edit = new \atk4\ui\Button('Изменить');
+      $edit->init();
      // $app->add($edit);
     //  $edit = $app->add(['Button','test']);
-     // $edit->on('click',new \atk4\ui\jsModal( 'Мой профиль',$vp));
+      $edit->on('click',new \atk4\ui\jsModal( 'Мой профиль',$vp));
 
-      $card->addButton((new \atk4\ui\Button('Изменить'))->init()->on('click',new \atk4\ui\jsModal( 'Мой профиль',$vp)));
+      $card->addButton($edit);
       //
 
   }
