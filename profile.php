@@ -33,7 +33,7 @@ $vp->set(function ($page) use ($current_user) {
       $edit = $app->add(['Button','test']);
       $edit->on('click',new \atk4\ui\jsModal( 'Мой профиль',$vp));
 
-   //   $card->addClickAction($vp,new \atk4\ui\Button('Изменить'));
+      $card->addButton((new \atk4\ui\Button('Изменить'))->on('click',new \atk4\ui\jsModal( 'Мой профиль',$vp)));
       //
 
   }
