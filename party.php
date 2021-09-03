@@ -60,7 +60,7 @@
   }
     if(!isset($_SESSION['user_id'])){
       $join->addClass('basic disabled');
-      $join->set('Зарегистрируйтесь, чтобы вступить');
+      $join->set('Войдите или зарегистрируйтесь, чтобы вступить');
   } else{
       if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded()) and ($slot['capacity']>$slot['total'])) {
         $join->on('click',function($join)use($db,$slots_id,$label,$current_user,$rr,$r_label,$rating,$popup){

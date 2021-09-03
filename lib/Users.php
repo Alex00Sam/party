@@ -4,9 +4,9 @@ class Users extends \atk4\data\Model {
 	public $table = 'users';
 	function init() :void{
 		parent::init();
-		$this->addField('login');
-		$this->addField('password',['type'=>'password']);
-		$this->addField('name',['caption'=>'Имя']);
+		$this->addField('login',['required'=>'true']);
+		$this->addField('password',['type'=>'password','required'=>'true']);
+		$this->addField('name',['caption'=>'Имя','required'=>'true']);
     $this->addField('surname',['caption'=>'Фамилия']);
     $this->addField('email');
     $this->addField('phone');
