@@ -15,7 +15,7 @@
   $s2 = $card->addSection('Контакты',$viewuser,['email','phone','country','city']);
 
   if($_SESSION['user_id']==$viewuser->id) {
-      $vp = $card->add('VirtualPage');
+      $vp = $app->add('VirtualPage');
       $vp->set(function ($vp) use ($current_user) {
           $form = $vp->add('Form');
           $form->setModel(new Users($db), ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
@@ -31,6 +31,7 @@
       //$mod->init();
       $edit = new \atk4\ui\Button('Изменить');
       $edit->init();
+
       $edit->on('click', $vp);
       $app->add($edit);
    //   $card->addClickAction($vp,new \atk4\ui\Button('Изменить'));
