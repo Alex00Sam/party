@@ -16,9 +16,9 @@
 
   if($current_user->id==$viewuser->id) {
       $vp = $app->add('VirtualPage');
-      $vp->set(function ($vp) use ($current_user, $card) {
+      $vp->set(function ($vp) use ($viewuser, $card) {
           $form = $vp->add('Form');
-          $form->setModel($current_user, ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
+          $form->setModel($viewuser, ['login', 'password', 'name', 'surname', 'dob', 'image', 'email', 'phone', 'country', 'city', 'gender', 'description', 'vk', 'inst']);
           $form->buttonSave->set('Сохранить');
           $form->onSubmit(function ($form) use ($card, $vp) {
               $form->model->save();
