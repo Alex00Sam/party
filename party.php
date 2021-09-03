@@ -21,6 +21,7 @@ $col1 = new \atk4\ui\View(['ui'=>'ten wide column']);
 $col2 = new \atk4\ui\View(['ui'=>'six wide column']);
 $columns->add($col1);
 $columns->add($col2);
+$app->add($columns);
   $img = $col1->add(['Image',$slot['image'],'rounded']);
   //$img->addStyle('width:50%;');
   $app->add(['ui'=>'hidden divider']);
