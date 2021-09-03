@@ -92,7 +92,7 @@ $app->add($columns);
       }
 }
 
-if($slot['capacity']<=$slot['total'] and !$mid->tryLoadBy('users_id',$_SESSION['user_id'])){
+if($slot['capacity']<=$slot['total'] and !($mid->tryLoadBy('users_id',$_SESSION['user_id']))){
     $join->addClass('basic disabled');
     $join->set('Свободных мест нет');
 }
