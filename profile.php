@@ -14,7 +14,7 @@
   $s2->addClass('center aligned');
   $s2 = $card->addSection('Контакты',$viewuser,['email','phone','country','city']);
 
-  if($current_user->id==$viewuser->id) {
+  if($_SESSION['user_id']==$viewuser->id) {
       $vp = new \atk4\ui\VirtualPage();
       $vp->init();
       $vp->set(function ($vp) use ($db,$card) {
