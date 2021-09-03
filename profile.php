@@ -29,11 +29,11 @@
       });
      // $mod = new \atk4\ui\jsModal('', $vp);
       //$mod->init();
-   //   $edit = new \atk4\ui\Button('Изменить');
-     // $edit->init();
-    //  $edit->on('click', $mod);
-      //$app->add($edit);
-      $card->addClickAction($vp,new \atk4\ui\Button('Изменить'));
+      $edit = new \atk4\ui\Button('Изменить');
+      $edit->init();
+      $edit->on('click', $vp);
+      $app->add($edit);
+   //   $card->addClickAction($vp,new \atk4\ui\Button('Изменить'));
       //
 
   }
