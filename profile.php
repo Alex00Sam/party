@@ -31,9 +31,9 @@
       //$mod->init();
       $edit = new \atk4\ui\Button('Изменить');
       $edit->init();
-
-      $edit->on('click', $vp);
       $app->add($edit);
+      $edit->on('click', $vp);
+
    //   $card->addClickAction($vp,new \atk4\ui\Button('Изменить'));
       //
 
