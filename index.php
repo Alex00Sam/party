@@ -24,11 +24,16 @@ $slot = new Slots($db);
 $menu=$app->add('Menu')->addMenu('Сортировать по:');
 $rat = $menu->addItem('По рейтингу');
 $dat = $menu->addItem('По дате');
-
+/*
 $columns = $app->add('Columns');
 $col1 = $columns->addColumn(4);
 $col2 = $columns->addColumn(4);
 $col3 = $columns->addColumn(4);
+*/
+$columns = new \atk4\ui\View(['ui'=>'grid']);
+$col1 = new \atk4\ui\View(['ui'=>'five wide column']);
+$col2 = new \atk4\ui\View(['ui'=>'five wide column']);
+$col3 = new \atk4\ui\View(['ui'=>'five wide column']);
 $rat->on('click',function($b)use($columns,$slot){
   $slot->setOrder('total_rating');
   return [$columns->jsReload()];
