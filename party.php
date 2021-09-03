@@ -122,7 +122,9 @@
       $map = new \atk4\ui\View(['template' => new \atk4\ui\Template('    <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q='.$slot['place'].'&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>')]);
       $col2->add($map);
     }
-    $col2->add(['Label','Дата:','icon'=>'calendar alternate outline','detail'=>(string)$slot['date']->format('Y-m-d')]);
+    $col2->add(['ui'=>'hidden divider']);
+
+    $col2->add(['Label','Дата:','size'=>'5','icon'=>'calendar alternate outline','detail'=>(string)$slot['date']->format('Y-m-d')]);
  //   $col2->add(['Header',(string)$slot['date']->format('Y-m-d')]);
 
   //  $col2->add(['Label','test','image'=>$slot['image']]);
