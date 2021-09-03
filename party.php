@@ -57,16 +57,12 @@ $app->add($columns);
       }
     });
   $join=$app->add(['Button','Вступить'])->addClass('blue');
-  if($slot['capacity'])
-  if($slot['capacity']<=$slot['total'] and !$mid->tryLoadBy('users_id',$_SESSION['user_id'])){
-    $join->addClass('basic disabled');
-    $join->set('Свободных мест нет');
-  }
+
     if(!isset($_SESSION['user_id'])){
       $join->addClass('basic disabled');
       $join->set('Войдите или зарегистрируйтесь, чтобы вступить');
   } else{
-      if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded()) and ($slot['capacity']>=$slot['total'])) {
+      if(!(($mid->tryLoadBy('users_id',$_SESSION['user_id']))->loaded()) and ($slot['capacity']>$slot['total'])) {
         $join->on('click',function($join)use($db,$slots_id,$label,$current_user,$rr,$r_label,$rating,$popup){
           $su=new SlotsUsers($db);
           $su['users_id']=$_SESSION['user_id'];
@@ -94,6 +90,11 @@ $app->add($columns);
         });
       }
 }
+    if($slot['capacity'])
+    if($slot['capacity']<=$slot['total'] and !$mid->tryLoadBy('users_id',$_SESSION['user_id'])){
+        $join->addClass('basic disabled');
+        $join->set('Свободных мест нет');
+    }
     if($slot['creator_id']==$_SESSION['user_id']){
       $join->addClass('disabled');
 
