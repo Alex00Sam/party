@@ -16,9 +16,11 @@
   $cr = $segment->add(new \atk4\ui\View('Организатор: '.$creatoruser['name'].' '.$creatoruser['surname']));
   //$cr->addClass('red');
   $app->add(['ui'=>'divider']);
-  $columns = $app->add('Columns');
-  $col1 = $columns->addColumn(12);
-  $col2 = $columns->addColumn(4);
+$columns = new \atk4\ui\View(['ui'=>'stackable grid']);
+$col1 = new \atk4\ui\View(['ui'=>'ten wide column']);
+$col2 = new \atk4\ui\View(['ui'=>'six wide column']);
+$columns->add($col1);
+$columns->add($col2);
   $img = $col1->add(['Image',$slot['image'],'rounded']);
   //$img->addStyle('width:50%;');
   $app->add(['ui'=>'hidden divider']);
