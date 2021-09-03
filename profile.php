@@ -27,7 +27,7 @@
           });
 
       });
-      $mod = $card->add(['JsModal','', $vp]);
+      $mod = $card->add(['jsModal','', $vp]);
       $edit = new \atk4\ui\Button('Изменить');
       $edit->init();
     //  $edit->on('click', $mod);
