@@ -14,7 +14,7 @@
   $s2->addClass('center aligned');
   $s2 = $card->addSection('Контакты',$viewuser,['email','phone','country','city']);
 
-  if($_SESSION['user_id']==$_GET['id']) {
+  if($current_user->id==$viewuser->id) {
       $vp = $app->add('VirtualPage');
       $vp->set(function ($vp) use ($current_user, $card) {
           $form = $vp->add('Form');
