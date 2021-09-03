@@ -23,12 +23,14 @@ class MLayout extends \atk4\ui\Layout\Maestro
 
         if ($this->menu === null) {
             $this->menu = Menu::addTo($this, ['inverted fixed horizontal', 'element' => 'header'], ['TopMenu']);
-            $this->burger = $this->menu->addItem(['class' => ['icon']]);
-            $this->burger->on('click', [
-                (new jQuery('.atk-sidenav'))->toggleClass('visible'),
-                (new jQuery('body'))->toggleClass('atk-sidenav-visible'),
-            ]);
-            Icon::addTo($this->burger, ['content']);
+            if(isset($_SESSION['user_id'])){
+                $this->burger = $this->menu->addItem(['class' => ['icon']]);
+                $this->burger->on('click', [
+                    (new jQuery('.atk-sidenav'))->toggleClass('visible'),
+                    (new jQuery('body'))->toggleClass('atk-sidenav-visible'),
+                ]);
+                Icon::addTo($this->burger, ['content']);
+            }
             //Header::addTo($this->menu, [$this->app->title, 'size' => 4])->link(['index']);
             $this->menu->addItem('Vpiski.NET',['index']);
 
@@ -113,10 +115,7 @@ class MLayout extends \atk4\ui\Layout\Maestro
         \atk4\ui\Layout\Generic::renderView();
         if (isset($_SESSION['user_id'])) {
             $this->menuLeft->js(true)->parent()->addClass('visible');
-        }else{
-            $this->burger->js()->hide();
         }
-
         $js = (new jQuery('.atk-maestro-sidenav'))->atkSidenav();
 
         $this->js(true, $js);
