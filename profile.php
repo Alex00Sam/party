@@ -30,7 +30,7 @@
       });
      // $mod = new \atk4\ui\jsModal('', $vp);
       $edit = new \atk4\ui\Button('Изменить');
-     // $edit->init();
+      $edit->init();
     //  $edit->on('click', $mod);
       //$app->add($edit);
       $card->addButton($edit)->on('click',$vp);
