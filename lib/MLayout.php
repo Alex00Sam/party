@@ -32,7 +32,7 @@ class MLayout extends \atk4\ui\Layout\Maestro
                 Icon::addTo($this->burger, ['content']);
             }
             //Header::addTo($this->menu, [$this->app->title, 'size' => 4])->link(['index']);
-            $this->menu->addItem('Vpiski.NET',['index']);
+            $this->menu->addItem($this->app->title,['index']);
 
         }
 
