@@ -11,7 +11,7 @@ require 'lib/Cards.php';
 require 'lib/UserCards.php';
 require 'lib/MLayout.php';
 //New app//
-$app = new \atk4\ui\App('EventHub');
+$app = new \atk4\ui\App('Happy Market');
 if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
      $db = new \atk4\data\Persistence\SQL($_ENV['CLEARDB_DATABASE_URL']);
  } else {
