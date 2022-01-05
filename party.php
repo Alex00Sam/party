@@ -56,6 +56,8 @@ $popup->set(function ($p) use ($db, $slot) {
         $p->add(new UserCards($u));
     }
 });
+$qty = $app->add('Form');
+$qty->addField('test',['type'=>'integer']);
 $join = $app->add(['Button', 'Вступить'])->addClass('blue');
 
 
@@ -76,7 +78,12 @@ if (!isset($_SESSION['user_id'])) {
             $su->save();
             //  $label->jsReload();
 
-            return [$rating->jsReload(), $rr->jsReload(), $r_label->jsReload(), $label->jsReload(), $popup->jsReload(), $join->text('Вы вступили')];//
+            return [$rating->jsReload(),
+                    $rr->jsReload(),
+                    $r_label->jsReload(),
+                    $label->jsReload(),
+                    $popup->jsReload(),
+                    $join->text('Вы вступили')];
 
         });
     } else {
