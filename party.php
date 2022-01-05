@@ -57,7 +57,7 @@ $popup->set(function ($p) use ($db, $slot) {
     }
 });
 $qty = $app->add('Form');
-$qty->addField('test');
+$qty->setModel(new Qty($db));
 $join = $app->add(['Button', 'Вступить'])->addClass('blue');
 
 

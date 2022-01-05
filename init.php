@@ -10,6 +10,7 @@ require 'lib/Users.php';
 require 'lib/Cards.php';
 require 'lib/UserCards.php';
 require 'lib/MLayout.php';
+require 'lib/Qty.php';
 //New app//
 $app = new \atk4\ui\App('Happy Market');
 if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
