@@ -58,6 +58,8 @@ $popup->set(function ($p) use ($db, $slot) {
 });
 $qty = $app->add('Form');
 $qty->setModel(new Qty($db));
+$qty2 = $app->add('Form');
+$qty2->addControl('qty',['type'=>'integer']);
 $join = $app->add(['Button', 'Вступить'])->addClass('blue');
 
 
