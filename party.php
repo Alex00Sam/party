@@ -57,7 +57,7 @@ $popup->set(function ($p) use ($db, $slot) {
     }
 });
 $qty = $app->add('Form');
-$qty->addField('test',['type'=>'integer']);
+$qty->addField('test');
 $join = $app->add(['Button', 'Вступить'])->addClass('blue');
 
 
