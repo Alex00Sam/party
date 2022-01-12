@@ -25,6 +25,9 @@ $col2 = $columns->addColumn(4);
 $col3 = $columns->addColumn(4);
 $slot = new Slots($db);
 $slot->addCondition('creator_id',$_SESSION['user_id']);
+
+$crud = $app->add('CRUD');
+$crud->setModel($slot);
 $i=1;
 
 foreach($slot as $a){

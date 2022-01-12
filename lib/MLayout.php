@@ -54,9 +54,11 @@ class MLayout extends \atk4\ui\Layout\Maestro
             $this->menuLeft->addItem('Pievienot pirkumu',['newslot']);
         }
         if(isset($_SESSION['user_id'])){
-            $this->menuRight->addItem('Iziet',['logout']);
-            $this->menuLeft->addItem('Mans profils',['profile','id'=>$_SESSION['user_id']]);
             $this->menuRight->addItem('Mani pirkumi',['myslots']);
+            $this->menuLeft->addItem('Mans profils',['profile','id'=>$_SESSION['user_id']]);
+            $this->menuRight->addItem('Iziet',['logout']);
+
+
 
         } else{
             $login = $this->menuRight->addItem('Pieslegties');
