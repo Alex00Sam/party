@@ -27,7 +27,7 @@ $slot = new Slots($db);
 $slot->addCondition('creator_id',$_SESSION['user_id']);
 
 $crud = $app->add('CRUD',['displayFields'=>['name','price','qty'],'editFields'=>['qty'],'addFields'=>[]]);
-$crud->actionButtons = null;
+$crud->del('AddButton');
 $crud->setModel($slot);
 $i=1;
 /*
