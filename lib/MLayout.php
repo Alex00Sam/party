@@ -49,15 +49,17 @@ class MLayout extends \atk4\ui\Layout\Maestro
         } else {
             $db = new \atk4\data\Persistence\SQL('mysql:dbname=party;localhost', 'MySite', '12345');
         }
-        if($_SESSION['user_id']==1) $this->menu->addItem('Admin',['admin']);
+        if($_SESSION['user_id']==1 or $_SESSION['user_id']==2) {
+            $this->menu->addItem('Admin',['admin']);
+            $this->menuLeft->addItem('Pievienot pirkumu',['newslot']);
+        }
         if(isset($_SESSION['user_id'])){
-            $this->menuRight->addItem('Выйти',['logout']);
-            $this->menuLeft->addItem('Мой профиль',['profile','id'=>$_SESSION['user_id']]);
-            $this->menuLeft->addItem('Куда я иду',['myslots']);
-            $this->menuLeft->addItem('Мои мероприятия',['myslots']);
-            $this->menuLeft->addItem('Добавить мероприятие',['newslot']);
+            $this->menuRight->addItem('Iziet',['logout']);
+            $this->menuLeft->addItem('Mans profils',['profile','id'=>$_SESSION['user_id']]);
+            $this->menuRight->addItem('Mani pirkumi',['myslots']);
+
         } else{
-            $login = $this->menuRight->addItem('Войти');
+            $login = $this->menuRight->addItem('Pieslegties');
             $popup=$this->add(['Popup',$login]);
             $popup->setOption('position','bottom center');
             $popup->setHoverable();
@@ -65,7 +67,7 @@ class MLayout extends \atk4\ui\Layout\Maestro
                 $user = new Users($db);
                 $form = $p->add('Form');
                 $form->setModel(new Users($db),['login','password']);
-                $form->buttonSave->set('Войти');
+                $form->buttonSave->set('Ieiet');
                 $form->onSubmit(function($form) use ($user) {
                     $user->tryLoadBy('login',$form->model['login']);
                     if (isset($user->id)){
@@ -83,7 +85,7 @@ class MLayout extends \atk4\ui\Layout\Maestro
                     }
                 });
             });
-            $this->menuRight->addItem('Зарегистрироваться',['register']);
+            $this->menuRight->addItem('Reģistreties',['register']);
         }
         //$this->menuLeft->addItem();
     }

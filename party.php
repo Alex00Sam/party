@@ -56,8 +56,6 @@ $popup->set(function ($p) use ($db, $slot) {
         $p->add(new UserCards($u));
     }
 });
-$qty = $app->add('Form');
-$qty->setModel(new Qty($db));
 
 $join = $app->add(['Button', 'Вступить'])->addClass('blue');
 
