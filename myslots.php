@@ -26,8 +26,8 @@ $col3 = $columns->addColumn(4);
 $slot = new Slots($db);
 $slot->addCondition('creator_id',$_SESSION['user_id']);
 
-$crud = $app->add('Grid',['displayFields'=>['name']]);
-$crud->setModel($slot);
+$crud = $app->add('Grid');
+$crud->setModel($slot,['name']);
 $i=1;
 
 foreach($slot as $a){
