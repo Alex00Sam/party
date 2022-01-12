@@ -26,10 +26,10 @@ $col3 = $columns->addColumn(4);
 $slot = new Slots($db);
 $slot->addCondition('creator_id',$_SESSION['user_id']);
 
-$crud = $app->add('Grid');
-$crud->setModel($slot,['name']);
+$crud = $app->add('CRUD',['displayFields'=>['name','price','qty'],'editFields'=>['qty']]);
+$crud->setModel($slot);
 $i=1;
-
+/*
 foreach($slot as $a){
 //  $card = new Cards($a);
 //  $card->link(['index']);
@@ -46,6 +46,7 @@ foreach($slot as $a){
            break;
   }
 }
+*/
 //$col3->add(['Button','click'])->link(['index','id'=>2]);
 /* $slot->load(4);
 $card = new Cards($slot);

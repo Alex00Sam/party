@@ -41,7 +41,8 @@ class Slots extends \atk4\data\Model {
 		$this->addField('place',['caption'=>'Место (адрес)','required'=>'true']);
 		$this->addField('showmap',['type'=>'boolean','caption'=>'Показавыть карту']);
 		$this->addField('capacity',['caption'=>'Максимальное число участников']);
-
+        $this->addField('price',['type'=>'money']);
+        $this->addField('qty',['type'=>'integer']);
         $this->onHook('beforeDelete',function(){
             $mid = $this->ref('SlotsUsers');
             foreach($mid as $a)
