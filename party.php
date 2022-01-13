@@ -25,7 +25,7 @@ $app->add($columns);
 $img = $col1->add(['Image', $slot['image'], 'rounded']);
 //$img->addStyle('width:50%;');
 $app->add(['ui' => 'hidden divider']);
-$app->add(['Text', $slot['description']]);
+//$app->add(['Text', $slot['description']]);
 $app->add(['ui' => 'hidden divider']);
 //$rating = new \atk4\ui\View(['ui' => 'massive rating disabled']);
 //$rating->js(true)->rating(['maxRating' => 5, 'initialRating' => round($slot['total_rating'])]);

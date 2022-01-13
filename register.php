@@ -20,7 +20,10 @@ $w->addStep('Имя пользователя и пароль',function($t)use($d
 
 $w->addStep('О себе',function($t)use($db,$user){
   $f =$t->add('Form');
-  $f -> setModel($user,['name','surname','email','phone','country','city','gender','description','vk','inst','image','dob']);
+  $f -> setModel($user,['name','surname',
+      'email','phone','category',
+      //'country','city','gender','description','vk','inst','image',
+      'dob']);
   //$m1 = $t->recall('model1');
   //$form->model->set('login',$m1['login']);
   //$form->model->set('password',$m1['password']);
