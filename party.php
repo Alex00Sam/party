@@ -13,7 +13,7 @@ $creatoruser->load($slot['creator_id']);
   */
 $segment = $app->add(['ui' => 'segment']);
 $segment->add(['Header', $slot['name']]);
-$cr = $segment->add(new \atk4\ui\View('Организатор: ' . $creatoruser['name'] . ' ' . $creatoruser['surname']));
+$cr = $segment->add(new \atk4\ui\View('Cena: ' . $slot['price']));
 //$cr->addClass('red');
 $app->add(['ui' => 'divider']);
 $columns = new \atk4\ui\View(['ui' => 'stackable grid']);
