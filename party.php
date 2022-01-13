@@ -27,13 +27,13 @@ $img = $col1->add(['Image', $slot['image'], 'rounded']);
 $app->add(['ui' => 'hidden divider']);
 $app->add(['Text', $slot['description']]);
 $app->add(['ui' => 'hidden divider']);
-$rating = new \atk4\ui\View(['ui' => 'massive rating disabled']);
-$rating->js(true)->rating(['maxRating' => 5, 'initialRating' => round($slot['total_rating'])]);
+//$rating = new \atk4\ui\View(['ui' => 'massive rating disabled']);
+//$rating->js(true)->rating(['maxRating' => 5, 'initialRating' => round($slot['total_rating'])]);
 
 
-$rr = $app->add($rating);
+//$rr = $app->add($rating);
 
-$r_label = $app->add(['Label', round($slot['total_rating'], 2), 'circular massive']);
+//$r_label = $app->add(['Label', round($slot['total_rating'], 2), 'circular massive']);
 
 $mid = $slot->ref('SlotsUsers');
 /*
@@ -42,12 +42,12 @@ foreach($mid as $a) {
   $i++;
 }*/
 
-$label = $app->add(['Button', $slot['total'], 'big', 'icon' => 'users']);
-$popup = $app->layout->add(['Popup', $label]);
-$popup->setOption('position', 'top center');
-$popup->setHoverable();
+//$label = $app->add(['Button', $slot['total'], 'big', 'icon' => 'users']);
+//$popup = $app->layout->add(['Popup', $label]);
+//$popup->setOption('position', 'top center');
+//$popup->setHoverable();
 
-$popup->set(function ($p) use ($db, $slot) {
+/*$popup->set(function ($p) use ($db, $slot) {
     $mid = $slot->ref('SlotsUsers');
 
     foreach ($mid as $m) {
@@ -56,8 +56,8 @@ $popup->set(function ($p) use ($db, $slot) {
         $p->add(new UserCards($u));
     }
 });
-
-$join = $app->add(['Button', 'Вступить'])->addClass('blue');
+*/
+$join = $app->add(['Button', 'Pirkt'])->addClass('blue');
 
 
 if (!isset($_SESSION['user_id'])) {
@@ -70,23 +70,23 @@ if (!isset($_SESSION['user_id'])) {
             $su = new SlotsUsers($db);
             $su['users_id'] = $_SESSION['user_id'];
             $su['slots_id'] = $slots_id;
-            $su['slots_rating'] = $current_user['rating'];
+   //         $su['slots_rating'] = $current_user['rating'];
             /*if($current_user['gender']=="Мужской") $slot['male']++;
             else $slot['female']++;
             $slot->save();*/
             $su->save();
             //  $label->jsReload();
 
-            return [$rating->jsReload(),
-                    $rr->jsReload(),
-                    $r_label->jsReload(),
-                    $label->jsReload(),
-                    $popup->jsReload(),
-                    $join->text('Вы вступили')];
+            return [//$rating->jsReload(),
+                   // $rr->jsReload(),
+                   // $r_label->jsReload(),
+                  //  $label->jsReload(),
+                  //  $popup->jsReload(),
+                    $join->text('Pievienots')];
 
         });
     } else {
-        $join->set('Вы вступили');
+        $join->set('Jau pievienots');
         $join->on('click', function ($join) use ($mid, $label, $rr, $r_label, $rating, $popup) {
             $mid->loadBy('users_id', $_SESSION['user_id'])->delete();
             //  $label->jsReload();
@@ -94,7 +94,14 @@ if (!isset($_SESSION['user_id'])) {
             else $slot['female']--;
             $slot->save();*/
 
-            return [$rating->jsReload(), $rr->jsReload(), $r_label->jsReload(), $label->jsReload(), $popup->jsReload(), $join->text('Вступить')];
+            return [
+              //  $rating->jsReload(),
+             //   $rr->jsReload(),
+             //   $r_label->jsReload(),
+             //   $label->jsReload(),
+             //   $popup->jsReload(),
+                $join->text('Pirkt')
+            ];
         });
     }
     if ($slot['capacity'] <= $slot['total'] and !(($mid->tryLoadBy('users_id', $_SESSION['user_id']))->loaded())) {
@@ -132,20 +139,20 @@ if ($slot['creator_id'] == $_SESSION['user_id']) {
     $ch = $app->add(['Button', 'Редактировать слот']);
     $ch->on('click', new \atk4\ui\jsModal('Редактировать слот', $vp));
 }
-$col2->add(['Label', 'Место:', 'big basic', 'icon' => 'map marker alternate', 'detail' => $slot['place']]);
+//$col2->add(['Label', 'Место:', 'big basic', 'icon' => 'map marker alternate', 'detail' => $slot['place']]);
 //  $col2->add(['Header',$slot['place']]);
-if ($slot['showmap']) {
-    $map = new \atk4\ui\View(['template' => new \atk4\ui\Template('    <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=' . $slot['place'] . '&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>')]);
-    $col2->add($map);
-}
+//if ($slot['showmap']) {
+//    $map = new \atk4\ui\View(['template' => new \atk4\ui\Template('    <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=' . $slot['place'] . '&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>')]);
+//    $col2->add($map);
+//}
 $col2->add(['ui' => 'hidden divider']);
 
-$col2->add(['Label', 'Дата:', 'big', 'icon' => 'calendar alternate outline', 'detail' => (string)$slot['date']->format('d.m.Y')]);
-if ($slot['time']) {
-    $col2->add(['Label', 'Время:', 'basic big', 'icon' => 'clock outline', 'detail' => (string)$slot['time']->format('H:i')]);
-} else {
-    $col2->add(['Label', 'Время:', 'basic big', 'icon' => 'clock outline', 'detail' => 'Весь день']);
-}
+//$col2->add(['Label', 'Дата:', 'big', 'icon' => 'calendar alternate outline', 'detail' => (string)$slot['date']->format('d.m.Y')]);
+//if ($slot['time']) {
+//    $col2->add(['Label', 'Время:', 'basic big', 'icon' => 'clock outline', 'detail' => (string)$slot['time']->format('H:i')]);
+//} else {
+//    $col2->add(['Label', 'Время:', 'basic big', 'icon' => 'clock outline', 'detail' => 'Весь день']);
+//}
 //   $col2->add(['Header',(string)$slot['date']->format('Y-m-d')]);
 
 //  $col2->add(['Label','test','image'=>$slot['image']]);
