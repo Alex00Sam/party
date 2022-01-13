@@ -70,6 +70,7 @@ if (!isset($_SESSION['user_id'])) {
             $su = new SlotsUsers($db);
             $su['users_id'] = $_SESSION['user_id'];
             $su['slots_id'] = $slots_id;
+            $su['price'] = 1;
    //         $su['slots_rating'] = $current_user['rating'];
             /*if($current_user['gender']=="Мужской") $slot['male']++;
             else $slot['female']++;
