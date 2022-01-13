@@ -27,9 +27,10 @@ $slot = new Slots($db);
 $slot->addCondition('creator_id',$_SESSION['user_id']);
 
 $crud = $app->add('CRUD',['displayFields'=>['name','price','qty'],'editFields'=>['qty'],'addFields'=>[]]);
-$crud->addQuickSearch(['name']);
+
 $crud->setModel($slot);
-$i=1;
+$crud->addQuickSearch(['name']);
+//$i=1;
 $button = $app->add(['Button','Pirkt']);
 /*
 foreach($slot as $a){
