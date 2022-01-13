@@ -1,7 +1,8 @@
 <?php
 require 'init.php';
 
-$crud2 = $app->layout->add('CRUD', ['displayFields' => ['id', 'name', 'surname', 'phone', 'category','total']]);
+$crud2 = $app->layout->add('CRUD', ['displayFields' => ['id', 'name', 'surname', 'phone', 'category']]);
+$crud2->addColumn('total', new \atk4\ui\Table\Column\Money(),'{$total}');
 //	$crud2->table->resizableColumn('',[100,100,100,100,100,100],['resizeMode'=>'fit','minWidth'=>100]);
 $crud2->setModel(new Users($db));
 $crud1 = $app->layout->add('CRUD', ['displayFields' => ['id', 'name', 'total_rating', 'date', 'time']]);
