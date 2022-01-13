@@ -14,7 +14,6 @@ class Slots extends \atk4\data\Model {
 		$su=$this->hasMany('SlotsUsers',new SlotsUsers());
 		$su->addField('total_rating',['aggregate'=>'avg','field'=>'slots_rating']);
 		$su->addField('total',['aggregate'=>'count']);
-        $su->addField('sum',['aggregate'=>'sum']);
 		/*$su = $this->ref('SlotsUsers');//->addField('total_rating', ['aggregate'=>'sum', 'field'=>'rating']);;
 		$i=0;
 		$sum=0;

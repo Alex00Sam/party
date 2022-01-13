@@ -27,6 +27,6 @@ class Users extends \atk4\data\Model {
         $this->addField('w_days',['caption'=>'darba dienas']);
         $this->addField('hourly_salary',['caption'=>'Stundas apmaksa']);
         $this->addExpression('total','([w_till]-[w_from])*[hourly_salary]*5');
-		$this->hasMany('SlotsUsers',new SlotsUsers());
+		$this->hasMany('SlotsUsers',new SlotsUsers())->addField('sum',['aggregate'=>'sum','field'=>'price']);
 	}
 }

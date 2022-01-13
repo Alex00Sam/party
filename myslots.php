@@ -31,7 +31,7 @@ $crud = $app->add('CRUD',['displayFields'=>['name','price','qty'],'editFields'=>
 $crud->setModel($slot);
 $crud->addQuickSearch(['name']);
 //$i=1;
-$button = $app->add(['Button','Pirkt, kopā '.$slot['sum']]);
+$button = $app->add(['Button','Pirkt, kopā '.$current_user['sum']]);
 /*
 foreach($slot as $a){
 //  $card = new Cards($a);
