@@ -51,11 +51,11 @@ class MLayout extends \atk4\ui\Layout\Maestro
         }
         if($_SESSION['user_id']==1 or $_SESSION['user_id']==2) {
             $this->menu->addItem('Admin',['admin']);
-            $this->menuLeft->addItem('Pievienot pirkumu',['newslot']);
+       //     $this->menuLeft->addItem('Pievienot pirkumu',['newslot']);
         }
         if(isset($_SESSION['user_id'])){
             $this->menuRight->addItem('Mani pirkumi',['myslots']);
-            $this->menuLeft->addItem('Mans profils',['profile','id'=>$_SESSION['user_id']]);
+         //   $this->menuLeft->addItem('Mans profils',['profile','id'=>$_SESSION['user_id']]);
             $this->menuRight->addItem('Iziet',['logout']);
 
 
