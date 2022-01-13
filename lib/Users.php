@@ -22,8 +22,8 @@ class Users extends \atk4\data\Model {
         $this->addField('category',['enum'=>['pardevejs','konsultants'],'caption'=>'Amats']);
 		$this->addField('dob',['caption'=>'Dzimšanas datums','type'=>'date']);
         $this->addField('phone',['caption'=>'Tālr. numurs']);
-        $this->addField('w_from',['caption'=>'Номер телефона']);
-        $this->addField('w_till',['caption'=>'Номер телефона']);
+        $this->addField('w_from',['caption'=>'No']);
+        $this->addField('w_till',['caption'=>'Līdz']);
         $this->addField('w_days',['caption'=>'darba dienas']);
         $this->addField('hourly_salary',['caption'=>'Stundas apmaksa']);
         $this->addExpression('total','([w_till]-[w_from])*[hourly_salary]*5');

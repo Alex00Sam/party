@@ -28,19 +28,19 @@ class Slots extends \atk4\data\Model {
 	//	$this->addField('rating');//->set($this->total_rating);
 
 
-		$this->addField('description',['caption'=>'Описание']);
-		$this->addField('male');
-		$this->addField('female');
+//		$this->addField('description',['caption'=>'Описание']);
+//		$this->addField('male');
+//		$this->addField('female');
 //		$this->addFields(['male','female']);//,['read_only'=>true]);
   //	$this->addExpression('total', '[male] + [female]');
-		$this->addField('gender',['type'=>'boolean','caption'=>'Пол']);
-		$this->addField('is_private',['caption'=>'Частное мероприятие','type'=>'boolean']);
+	//	$this->addField('gender',['type'=>'boolean','caption'=>'Пол']);
+	//	$this->addField('is_private',['caption'=>'Частное мероприятие','type'=>'boolean']);
 		$this->addField('creator_id');
-		$this->addField('date',['caption'=>'Дата','type'=>'date','required'=>'true']);
-		$this->addField('time',['caption'=>'Время','type'=>'time']);
-		$this->addField('place',['caption'=>'Место (адрес)','required'=>'true']);
-		$this->addField('showmap',['type'=>'boolean','caption'=>'Показавыть карту']);
-		$this->addField('capacity',['caption'=>'Максимальное число участников']);
+	//	$this->addField('date',['caption'=>'Дата','type'=>'date','required'=>'true']);
+	//	$this->addField('time',['caption'=>'Время','type'=>'time']);
+	//	$this->addField('place',['caption'=>'Место (адрес)','required'=>'true']);
+	//	$this->addField('showmap',['type'=>'boolean','caption'=>'Показавыть карту']);
+		$this->addField('capacity');
         $this->addField('price',['type'=>'money']);
         $this->addField('qty',['type'=>'integer']);
         $this->onHook('beforeDelete',function(){
