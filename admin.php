@@ -10,8 +10,8 @@ $crud1 = $app->layout->add('CRUD', ['displayFields' => ['id', 'name', 'total_rat
 $crud1->table->resizableColumn('', [50, 200, 100, 100, 100]);
 $crud1->setModel(new Slots($db));
 
-//	$crud3=$app->layout->add('CRUD');
-//	$crud3->table->resizableColumn('',[100,100,100,100,100,100],['resizeMode'=>'fit','minWidth'=>100]);
-//	$crud3->setModel(new SlotsUsers($db));
+	$crud3=$app->layout->add('CRUD');
+	$crud3->table->resizableColumn('',[100,100,100,100,100,100],['resizeMode'=>'fit','minWidth'=>100]);
+	$crud3->setModel(new SlotsUsers($db));
 //$crud->addColumn('gender', ['Radio'], ['enum'=>['Мужской','Женский','Не указано']]);
 //	$app->add(['Button','Homepage','icon'=>'undo'])->link('index.php');
