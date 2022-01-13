@@ -1,7 +1,7 @@
 <?php
 require 'init.php';
 
-$crud2 = $app->layout->add('CRUD', ['displayFields' => ['id', 'login', 'name', 'surname', 'phone', 'rating']]);
+$crud2 = $app->layout->add('CRUD', ['displayFields' => ['id', 'name', 'surname', 'phone', 'category','sum']]);
 //	$crud2->table->resizableColumn('',[100,100,100,100,100,100],['resizeMode'=>'fit','minWidth'=>100]);
 $crud2->setModel(new Users($db));
 $crud1 = $app->layout->add('CRUD', ['displayFields' => ['id', 'name', 'total_rating', 'date', 'time']]);

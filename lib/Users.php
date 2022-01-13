@@ -19,6 +19,7 @@ class Users extends \atk4\data\Model {
 //		$this->addField('vk',['caption'=>'Ссылка на страницу ВКонтакте']);
 //		$this->addField('inst',['caption'=>'Ссылка на страницу Instagram']);
 //    $this->addField('image',['caption'=>'Изображение (URL из интернета)']);
+        $this->addField('category',['enum'=>['pardevejs','konsultants'],'caption'=>'Amats']);
 		$this->addField('dob',['caption'=>'Dzimšanas datums','type'=>'date']);
         $this->addField('phone',['caption'=>'Tālr. numurs']);
         $this->addField('w_from',['caption'=>'Номер телефона']);
