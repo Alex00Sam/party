@@ -23,8 +23,9 @@ $columns = $app->add('Columns');
 $col1 = $columns->addColumn(4);
 $col2 = $columns->addColumn(4);
 $col3 = $columns->addColumn(4);
-$slot = new Slots($db);
-$slot->addCondition('creator_id',$_SESSION['user_id']);
+$su = new SlotsUsers($db);
+$su->addCondition('users_id',$_SESSION['user_id']);
+$slot = $su->ref('Slots');
 
 $crud = $app->add('CRUD',['displayFields'=>['name','price','qty'],'editFields'=>['qty'],'addFields'=>[]]);
 
