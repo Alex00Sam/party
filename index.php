@@ -20,13 +20,10 @@ $crud->setModel(new Friends($db));
 //$app->add(['Button','admin','icon'=>'dev'])->link('admin.php');
 $slot = new Slots($db);
 
-/* FIX SORTING
+
 $menu=$app->add('Menu')->addMenu('Сортировать по:');
 $rat = $menu->addItem('По рейтингу');
 $dat = $menu->addItem('По дате');
-*/
-
-
 /*
 $columns = $app->add('Columns');
 $col1 = $columns->addColumn(4);
@@ -41,8 +38,6 @@ $columns->add($col1);
 $columns->add($col2);
 $columns->add($col3);
 $app->add($columns);
-
-/* FIX SORTING
 $rat->on('click',function($b)use($columns,$slot){
   $slot->setOrder('total_rating');
   return [$columns->jsReload()];
@@ -51,7 +46,7 @@ $dat->on('click',function($b)use($columns,$slot){
   $slot->setOrder('date');
   return [$columns->jsReload()];
 });
-*/
+
 $i=1;
 foreach($slot as $a){
 //  $card = new Cards($a);
