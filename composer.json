@@ -8,6 +8,6 @@
     "atk4/dsql": "dev-develop",
     "atk4/schema": "dev-develop",
     "atk4/login": "dev-develop",
-    "atk4/data": "dev-develop"
+    "atk4/data": "2.0"
   }
 }
