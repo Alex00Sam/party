@@ -4,10 +4,10 @@
     "php": ">=7.2.0",
     "ext-intl": "*",
     "atk4/ui": "1.7",
-    "atk4/core": "dev-develop",
-    "atk4/dsql": "dev-develop",
-    "atk4/schema": "dev-develop",
-    "atk4/login": "dev-develop",
+    "atk4/core": "2.0",
+    "atk4/dsql": "1.2",
+    "atk4/schema": "1.1.6",
+    "atk4/login": "1.0.2",
     "atk4/data": "2.0"
   }
 }
