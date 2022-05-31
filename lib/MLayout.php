@@ -12,6 +12,7 @@ use atk4\ui\Icon;
 use atk4\ui\Item;
 use atk4\ui\jQuery;
 use atk4\ui\Menu;
+use atk4\ui\Popup;
 
 class MLayout extends \atk4\ui\Layout\Maestro
 {
@@ -62,10 +63,10 @@ class MLayout extends \atk4\ui\Layout\Maestro
 
         } else{
             $login = $this->menuRight->addItem('Pieslegties');
-            $popup=$this->add(['Popup',$login]);
-            $popup->setOption('position','bottom center');
-            $popup->setHoverable();
-            $popup->set(function($p) use($db){
+            Popup::addTo($this,[$login])
+            ->setOption('position','bottom center')
+            ->setHoverable()
+            ->set(function($p) use($db){
                 $user = new Users($db);
                 $form = $p->add('Form');
                 $form->setModel(new Users($db),['login','password']);

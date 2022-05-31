@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/atk4/schema" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/atk4/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/atk4/dsql" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/atk4/login" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/atk4/core" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/atk4/data" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

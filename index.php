@@ -1,5 +1,8 @@
 
 <?php
+
+use atk4\ui\Popup;
+
 require 'init.php';
 //Form//
 /*$intro = $app->layout->add('Header')->set('Welcome to Money Lending App, where you can manage your friend loans and their returnings. Enjoy!');
@@ -22,6 +25,32 @@ $slot = new Slots($db);
 
 
 $menu=$app->add('Menu')->addMenu('Сортировать по:');
+$login = $app->add(['Button','Войти']);
+Popup::addTo($app,[$login])
+    ->setOption('position','bottom center')
+    ->setHoverable()
+    ->set(function($p) use($db){
+        $user = new Users($db);
+        $form = $p->add('Form');
+        $form->setModel(new Users($db),['login','password']);
+        $form->buttonSave->set('Войти');
+        $form->onSubmit(function($form) use ($user) {
+            $user->tryLoadBy('login',$form->model['login']);
+            if (isset($user->id)){
+                if ($user['password'] === $form->model['password']) {
+                    $_SESSION['user_id'] = $user->id;
+                    return new \atk4\ui\jsExpression('document.location=""');
+                } else {
+                    $user->unload();
+                    $er = (new \atk4\ui\jsNotify('Wrong login/password'));
+                    $er->setColor('red');
+                    return $er;
+                }
+            } else{
+                return new atk4\ui\jsNotify(['content' => 'No such user.', 'color' => 'red']);
+            }
+        });
+    });
 $rat = $menu->addItem('По рейтингу');
 $dat = $menu->addItem('По дате');
 /*

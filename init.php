@@ -1,7 +1,4 @@
-
 <?php
-
-
 session_start();
 require 'vendor/autoload.php';
 require 'lib/Slots.php';
@@ -16,7 +13,7 @@ $app = new \atk4\ui\App('Happy Market');
 if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
      $db = new \atk4\data\Persistence\SQL($_ENV['CLEARDB_DATABASE_URL']);
  } else {
-   $db = new \atk4\data\Persistence\SQL('mysql:dbname=party;localhost', 'MySite', '12345');
+   $db = new \atk4\data\Persistence\SQL('mysql:dbname=party;127.0.0.1', 'MySite', '12345');
  }
 
 ///////////

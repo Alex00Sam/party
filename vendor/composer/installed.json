@@ -1,0 +1,623 @@
+[
+    {
+        "name": "atk4/core",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/atk4/core.git",
+            "reference": "e2fe68b11e143ea59e5ec3a0689361de97a49ed4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/atk4/core/zipball/e2fe68b11e143ea59e5ec3a0689361de97a49ed4",
+            "reference": "e2fe68b11e143ea59e5ec3a0689361de97a49ed4",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "php": ">=7.2.0",
+            "psr/log": "~1.0",
+            "symfony/polyfill-php73": "^1.15"
+        },
+        "require-dev": {
+            "atk4/data": "dev-develop",
+            "friendsofphp/php-cs-fixer": "^2.16",
+            "phpunit/phpunit": "*",
+            "symfony/contracts": ">=1.1",
+            "symfony/yaml": ">=3.4"
+        },
+        "suggest": {
+            "symfony/yaml": ">=3.4"
+        },
+        "time": "2020-05-07T22:16:24+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "atk4\\core\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Romans Malinovskis",
+                "email": "romans@agiletoolkit.org",
+                "homepage": "https://nearly.guru/"
+            },
+            {
+                "name": "Imants Horsts",
+                "homepage": "https://darkside.lv/"
+            },
+            {
+                "name": "Francesco Danti",
+                "homepage": "https://oracoltech.com/"
+            },
+            {
+                "name": "Michael Voříšek",
+                "homepage": "https://mvorisek.cz/"
+            }
+        ],
+        "description": "Agile Core - collection of PHP Traits for designing object-oriented frameworks",
+        "homepage": "https://github.com/atk4/core",
+        "keywords": [
+            "Agile Toolkit",
+            "framework",
+            "php",
+            "traits"
+        ]
+    },
+    {
+        "name": "atk4/data",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/atk4/data.git",
+            "reference": "2552676f71d34f28b63f4b60d32070b3f5d022b0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/atk4/data/zipball/2552676f71d34f28b63f4b60d32070b3f5d022b0",
+            "reference": "2552676f71d34f28b63f4b60d32070b3f5d022b0",
+            "shasum": ""
+        },
+        "require": {
+            "atk4/core": "dev-develop",
+            "atk4/dsql": "dev-develop",
+            "ext-intl": "*",
+            "php": ">=7.2.0"
+        },
+        "replace": {
+            "atk4/data": "self.version"
+        },
+        "require-dev": {
+            "atk4/schema": "dev-develop",
+            "friendsofphp/php-cs-fixer": "^2.16",
+            "phpunit/dbunit": ">=1.2",
+            "phpunit/phpcov": "*",
+            "phpunit/phpunit": "<6"
+        },
+        "time": "2020-05-05T00:53:01+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "atk4\\data\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Romans Malinovskis",
+                "email": "romans@agiletoolkit.org",
+                "homepage": "https://nearly.guru/"
+            },
+            {
+                "name": "Imants Horsts",
+                "homepage": "https://darkside.lv/"
+            },
+            {
+                "name": "Michael Voříšek",
+                "homepage": "https://mvorisek.cz/"
+            }
+        ],
+        "description": "Agile Data - Database access abstraction framework",
+        "homepage": "https://github.com/atk4/data",
+        "keywords": [
+            "Active Record",
+            "builder",
+            "framework",
+            "mongodb",
+            "mysql",
+            "nosql",
+            "oracle",
+            "orm",
+            "postgresql",
+            "query",
+            "sql"
+        ],
+        "funding": [
+            {
+                "url": "https://github.com/DarkSide666",
+                "type": "github"
+            },
+            {
+                "url": "https://github.com/romaninsh",
+                "type": "github"
+            }
+        ]
+    },
+    {
+        "name": "atk4/dsql",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/atk4/dsql.git",
+            "reference": "8f119a2a9f1fd123182d02f069a3d5becce43b8a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/atk4/dsql/zipball/8f119a2a9f1fd123182d02f069a3d5becce43b8a",
+            "reference": "8f119a2a9f1fd123182d02f069a3d5becce43b8a",
+            "shasum": ""
+        },
+        "require": {
+            "atk4/core": "dev-develop",
+            "php": ">=7.2.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^2.16",
+            "phpunit/phpcov": "*",
+            "phpunit/phpunit": "*"
+        },
+        "suggest": {
+            "jdorn/sql-formatter": "*"
+        },
+        "time": "2020-05-07T19:18:29+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "atk4\\dsql\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Romans Malinovskis",
+                "email": "romans@agiletoolkit.org",
+                "homepage": "https://nearly.guru/"
+            },
+            {
+                "name": "Imants Horsts",
+                "homepage": "https://darkside.lv/"
+            },
+            {
+                "name": "Michael Voříšek",
+                "homepage": "https://mvorisek.cz/"
+            }
+        ],
+        "description": "Dynamic SQL Builder in PHP",
+        "homepage": "http://agiletoolkit.org/",
+        "keywords": [
+            "builder",
+            "framework",
+            "orm",
+            "sql"
+        ]
+    },
+    {
+        "name": "atk4/login",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/atk4/login.git",
+            "reference": "71f962a4c4f097a4753e1aa3773ab57d374d583f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/atk4/login/zipball/71f962a4c4f097a4753e1aa3773ab57d374d583f",
+            "reference": "71f962a4c4f097a4753e1aa3773ab57d374d583f",
+            "shasum": ""
+        },
+        "require": {
+            "atk4/data": "dev-develop",
+            "atk4/schema": "dev-develop",
+            "atk4/ui": "dev-develop",
+            "php": ">=7.2.0"
+        },
+        "require-dev": {
+            "phpunit/phpcov": "^3.0",
+            "phpunit/phpunit": "<6"
+        },
+        "time": "2020-05-15T10:03:06+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "atk4\\login\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Romans Malinovskis",
+                "email": "romans@agiletoolkit.org",
+                "homepage": "https://nearly.guru/"
+            }
+        ],
+        "description": "Login and User module for Agile UI",
+        "homepage": "https://github.com/atk4/login",
+        "keywords": [
+            "Agile",
+            "acl",
+            "agile ui",
+            "atk4",
+            "auth",
+            "data",
+            "framework",
+            "login",
+            "user"
+        ]
+    },
+    {
+        "name": "atk4/schema",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/atk4/schema.git",
+            "reference": "0a8e62c1f067a570f029eee4d48ee7284334cc22"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/atk4/schema/zipball/0a8e62c1f067a570f029eee4d48ee7284334cc22",
+            "reference": "0a8e62c1f067a570f029eee4d48ee7284334cc22",
+            "shasum": ""
+        },
+        "require": {
+            "atk4/data": "dev-develop",
+            "php": ">=7.2.0"
+        },
+        "require-dev": {
+            "atk4/ui": "dev-develop",
+            "friendsofphp/php-cs-fixer": "^2.16",
+            "phpunit/phpcov": "*",
+            "phpunit/phpunit": "*"
+        },
+        "suggest": {
+            "atk4/ui": "dev-develop",
+            "jdorn/sql-formatter": "*"
+        },
+        "time": "2020-04-29T10:55:38+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "atk4\\schema\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Romans Malinovskis",
+                "email": "romans@agiletoolkit.org",
+                "homepage": "https://nearly.guru/"
+            },
+            {
+                "name": "Imants Horsts",
+                "homepage": "https://darkside.lv/"
+            },
+            {
+                "name": "Francesco Danti",
+                "homepage": "https://oracoltech.com/"
+            },
+            {
+                "name": "Michael Voříšek",
+                "homepage": "https://mvorisek.cz/"
+            },
+            {
+                "name": "Georgi Hristov",
+                "homepage": "https://xsystems.io/"
+            }
+        ],
+        "description": "Agile Schema",
+        "homepage": "http://github.com/atk4/schema",
+        "keywords": [
+            "Agile",
+            "alter",
+            "data",
+            "framework",
+            "migration",
+            "schema",
+            "sql"
+        ]
+    },
+    {
+        "name": "atk4/ui",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/atk4/ui.git",
+            "reference": "b9468d568b7cebf417a83e215590b89da0e7b845"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/atk4/ui/zipball/b9468d568b7cebf417a83e215590b89da0e7b845",
+            "reference": "b9468d568b7cebf417a83e215590b89da0e7b845",
+            "shasum": ""
+        },
+        "require": {
+            "atk4/core": "dev-develop",
+            "atk4/data": "dev-develop",
+            "ext-json": "*",
+            "fzaninotto/faker": "*",
+            "php": ">=7.2.0"
+        },
+        "require-dev": {
+            "behat/behat": "^3.4",
+            "behat/mink-extension": "^2.2",
+            "behat/mink-selenium2-driver": "^1.3",
+            "friendsofphp/php-cs-fixer": "^2.16",
+            "guzzlehttp/guzzle": "^6.3",
+            "phpunit/phpcov": "*",
+            "phpunit/phpunit": "*",
+            "symfony/process": "^4.3 || ^5.0"
+        },
+        "time": "2020-05-14T22:56:50+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "atk4\\ui\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Romans Malinovskis",
+                "email": "romans@agiletoolkit.org",
+                "homepage": "https://nearly.guru/"
+            },
+            {
+                "name": "Alain Belair",
+                "homepage": "https://agiletoolkit.org/"
+            },
+            {
+                "name": "Imants Horsts",
+                "homepage": "https://darkside.lv/"
+            },
+            {
+                "name": "Francesco Danti",
+                "homepage": "https://oracoltech.com/"
+            },
+            {
+                "name": "Michael Voříšek",
+                "homepage": "https://mvorisek.cz/"
+            },
+            {
+                "name": "Philipp Grashoff"
+            },
+            {
+                "name": "Alex Cicovic",
+                "homepage": "https://alexcicovic.com/"
+            },
+            {
+                "name": "Georgi Hristov",
+                "homepage": "https://xsystems.io/"
+            }
+        ],
+        "description": "Agile UI - Web Component Framework written in PHP",
+        "homepage": "https://github.com/atk4/ui",
+        "keywords": [
+            "button",
+            "component",
+            "crud",
+            "form",
+            "framework",
+            "gadget",
+            "grid",
+            "render",
+            "ui",
+            "web",
+            "widget"
+        ]
+    },
+    {
+        "name": "fzaninotto/faker",
+        "version": "v1.9.1",
+        "version_normalized": "1.9.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fzaninotto/Faker.git",
+            "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
+            "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.3.3 || ^7.0"
+        },
+        "require-dev": {
+            "ext-intl": "*",
+            "phpunit/phpunit": "^4.8.35 || ^5.7",
+            "squizlabs/php_codesniffer": "^2.9.2"
+        },
+        "time": "2019-12-12T13:22:17+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.9-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Faker\\": "src/Faker/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "François Zaninotto"
+            }
+        ],
+        "description": "Faker is a PHP library that generates fake data for you.",
+        "keywords": [
+            "data",
+            "faker",
+            "fixtures"
+        ]
+    },
+    {
+        "name": "psr/log",
+        "version": "1.1.3",
+        "version_normalized": "1.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
+            "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2020-03-23T09:12:05+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "homepage": "https://github.com/php-fig/log",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-php73",
+        "version": "v1.17.0",
+        "version_normalized": "1.17.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-php73.git",
+            "reference": "a760d8964ff79ab9bf057613a5808284ec852ccc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/a760d8964ff79ab9bf057613a5808284ec852ccc",
+            "reference": "a760d8964ff79ab9bf057613a5808284ec852ccc",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2020-05-12T16:47:27+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.17-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Php73\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ],
+            "classmap": [
+                "Resources/stubs"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "polyfill",
+            "portable",
+            "shim"
+        ],
+        "funding": [
+            {
+                "url": "https://symfony.com/sponsor",
+                "type": "custom"
+            },
+            {
+                "url": "https://github.com/fabpot",
+                "type": "github"
+            },
+            {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+            }
+        ]
+    }
+]
